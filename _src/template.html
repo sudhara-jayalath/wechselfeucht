@@ -1,0 +1,1102 @@
+<title>Wechselfeucht Hamburg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@1,8..60,400;1,8..60,600&display=swap">
+<style>
+/* Layout: field-guide app. Slim masthead, sticky tab rail, one working canvas per tab; the interactive cross-section (Querprofil) is the signature element. */
+:root{
+  --bg:#ECF0EB; --surface:#FAFCF9; --surface-2:#E1E8E1; --ink:#16221C; --ink-2:#44564D; --ink-3:#6B7D73; --line:#C8D3CA; --line-strong:#9DAEA3;
+  --accent:#1C6858; --accent-ink:#FFFFFF; --accent-soft:#D2E6DE; --hl:rgba(28,104,88,.12);
+  --water:#86B8CF; --water-line:#2C7093; --sand:#E7D8AE; --sand-dot:#C6AE72; --clay:#ABA08D; --clay-line:#8A7E6B; --topsoil:#6E5A42; --gw:#2C7093;
+  --veg:#3B7146; --veg-2:#76A15C; --bloom-1:#B23E7A; --bloom-2:#D4A82A; --bloom-3:#F3EEDF; --bloom-4:#5272BE; --reed:#83633D; --trunk:#5C4938;
+  --m-flood:#2C7093; --m-drought:#B0822A; --m-poll:#3B7146;
+  --zA:#2F7EA3; --zB:#9C7A22; --zC:#2A5A84; --zD:#3B7146;
+  --warn:#9A5418; --warn-soft:#F4E4D0;
+  --shadow:0 10px 30px rgba(22,34,28,.16);
+  --font-display:"Bricolage Grotesque","Avenir Next","Segoe UI",sans-serif;
+  --font-body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --font-latin:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --fs-xs:12px; --fs-s:13.5px; --fs-m:15px; --fs-l:17px; --fs-xl:21px; --fs-2xl:28px; --fs-3xl:36px;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1713; --surface:#16211B; --surface-2:#1F2C25; --ink:#E2EBE5; --ink-2:#A7B8AE; --ink-3:#7D8F85; --line:#2B3B33; --line-strong:#41554A;
+    --accent:#62C3A7; --accent-ink:#0C1A14; --accent-soft:#1C3A31; --hl:rgba(98,195,167,.14);
+    --water:#2B5C74; --water-line:#6FB3D5; --sand:#4A4330; --sand-dot:#6C5F41; --clay:#3F3931; --clay-line:#5C5345; --topsoil:#2C2318; --gw:#6FB3D5;
+    --veg:#7AB97D; --veg-2:#A2CA86; --bloom-1:#E07BAE; --bloom-2:#EBC657; --bloom-3:#E6DFC9; --bloom-4:#8DADEF; --reed:#B58F5F; --trunk:#A28871;
+    --m-flood:#6FB3D5; --m-drought:#D9B45B; --m-poll:#7AB97D;
+    --zA:#6FB3D5; --zB:#D9B45B; --zC:#93BCE6; --zD:#7AB97D;
+    --warn:#E6A25F; --warn-soft:#382816;
+    --shadow:0 12px 34px rgba(0,0,0,.5);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+    --bg:#0F1713; --surface:#16211B; --surface-2:#1F2C25; --ink:#E2EBE5; --ink-2:#A7B8AE; --ink-3:#7D8F85; --line:#2B3B33; --line-strong:#41554A;
+    --accent:#62C3A7; --accent-ink:#0C1A14; --accent-soft:#1C3A31; --hl:rgba(98,195,167,.14);
+    --water:#2B5C74; --water-line:#6FB3D5; --sand:#4A4330; --sand-dot:#6C5F41; --clay:#3F3931; --clay-line:#5C5345; --topsoil:#2C2318; --gw:#6FB3D5;
+    --veg:#7AB97D; --veg-2:#A2CA86; --bloom-1:#E07BAE; --bloom-2:#EBC657; --bloom-3:#E6DFC9; --bloom-4:#8DADEF; --reed:#B58F5F; --trunk:#A28871;
+    --m-flood:#6FB3D5; --m-drought:#D9B45B; --m-poll:#7AB97D;
+    --zA:#6FB3D5; --zB:#D9B45B; --zC:#93BCE6; --zD:#7AB97D;
+    --warn:#E6A25F; --warn-soft:#382816;
+    --shadow:0 12px 34px rgba(0,0,0,.5);
+    color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:var(--fs-m);line-height:1.55;margin:0}
+.wrap{max-width:1140px;margin:0 auto;padding-inline:16px}
+@media (min-width:720px){.wrap{padding-inline:28px}}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:1.15;margin:0;text-wrap:balance;font-weight:700;letter-spacing:-.01em}
+p{margin:0}
+a{color:var(--accent)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+.latin{font-family:var(--font-latin);font-style:italic}
+.eyebrow{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.09em;color:var(--ink-3);font-weight:600}
+.small{font-size:var(--fs-s);color:var(--ink-2)}
+.muted{color:var(--ink-3)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Masthead */
+.mast{padding-block:22px 14px}
+.mast-row{display:flex;gap:16px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.mast h1{font-size:var(--fs-3xl);font-weight:700;letter-spacing:-.025em}
+.mast h1 span{color:var(--accent)}
+.mast .sub{color:var(--ink-2);max-width:62ch;margin-top:6px;font-size:var(--fs-l)}
+.seg{display:inline-flex;border:1px solid var(--line-strong);border-radius:999px;padding:3px;background:var(--surface);gap:2px}
+.seg button{border:0;background:transparent;padding:6px 13px;border-radius:999px;cursor:pointer;font-size:var(--fs-s);font-weight:600;color:var(--ink-2);white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.seg button:hover:not([aria-pressed="true"]){background:var(--surface-2)}
+
+/* Tabs */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.tabs-in{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tabs-in::-webkit-scrollbar{display:none}
+.tab{border:0;background:transparent;padding:13px 12px 11px;font-weight:600;color:var(--ink-2);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;display:flex;align-items:center;gap:7px;font-size:var(--fs-m)}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tab:hover{color:var(--ink)}
+.badge{font-size:11px;font-weight:700;background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:1px 7px;font-variant-numeric:tabular-nums}
+main{padding-block:22px 48px}
+.panel-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-end;flex-wrap:wrap;margin-bottom:16px}
+.panel-head h2{font-size:var(--fs-2xl)}
+.panel-head p{color:var(--ink-2);max-width:64ch;margin-top:6px}
+
+/* Buttons & chips */
+.btn{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line-strong);background:var(--surface);border-radius:999px;padding:8px 15px;cursor:pointer;font-weight:600;font-size:var(--fs-s)}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 11px 4px 9px;font-size:var(--fs-s);cursor:pointer;line-height:1.35;text-align:left}
+.chip:hover{border-color:var(--accent)}
+.chip .csub{color:var(--ink-3);font-size:var(--fs-xs)}
+.chip.on,.chip[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--ink)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 0 1px var(--line-strong);flex:none}
+.zb{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;font-family:var(--font-display);font-weight:700;font-size:12px;border:1.5px solid currentColor;flex:none}
+.zb.A{color:var(--zA)}.zb.B{color:var(--zB)}.zb.C{color:var(--zC)}.zb.D{color:var(--zD)}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:var(--fs-xs);font-weight:600;padding:2px 9px;border-radius:999px;background:var(--surface-2);color:var(--ink-2)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.gtag{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-3)}
+
+/* Cross-section */
+.bio-controls{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-bottom:12px}
+.bio-controls .lbl{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);font-weight:600;margin-right:2px}
+.figure{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin:0;overflow:hidden}
+.fig-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.fig-scroll svg{display:block;width:100%;min-width:640px;height:auto}
+.fig-foot{display:flex;gap:10px 18px;justify-content:space-between;flex-wrap:wrap;padding:10px 14px 12px;border-top:1px solid var(--line);font-size:var(--fs-s);color:var(--ink-2)}
+.fig-foot .state{color:var(--ink);max-width:70ch}
+.swipe{display:none;color:var(--ink-3);font-size:var(--fs-xs)}
+@media (max-width:700px){.swipe{display:block}}
+svg .g-water{fill:var(--water)}
+svg .g-wline{stroke:var(--water-line);stroke-width:2}
+svg .g-wgrp{transition:transform .8s cubic-bezier(.4,.1,.2,1)}
+svg .g-sand{fill:var(--sand)} svg .g-sanddot{fill:var(--sand-dot)}
+svg .g-clay{fill:var(--clay)} svg .g-clayline{stroke:var(--clay-line);stroke-width:1.4}
+svg .g-top{stroke:var(--topsoil);stroke-opacity:.42;fill:none;stroke-linejoin:round}
+svg .g-surface{stroke:var(--ink-3);stroke-width:1.4;fill:none;stroke-linejoin:round}
+svg .g-gw{stroke:var(--gw);stroke-width:2;stroke-dasharray:7 6;fill:none}
+svg .g-veg{stroke:var(--veg);fill:none;stroke-linecap:round}
+svg .g-veg2{stroke:var(--veg-2);fill:none;stroke-linecap:round}
+svg .g-vegf{fill:var(--veg)} svg .g-veg2f{fill:var(--veg-2)}
+svg .g-f1{fill:var(--bloom-1)} svg .g-f2{fill:var(--bloom-2)} svg .g-f3{fill:var(--bloom-3);stroke:var(--line-strong);stroke-width:.6} svg .g-f4{fill:var(--bloom-4)}
+svg .g-reed{stroke:var(--reed);fill:none;stroke-linecap:round} svg .g-reedf{fill:var(--reed)}
+svg .g-trunk{stroke:var(--trunk);fill:none;stroke-linecap:round}
+svg .g-leaf{fill:var(--veg-2);stroke:var(--veg);stroke-width:.8}
+svg .g-hl{fill:var(--hl)}
+svg .g-sel{stroke:var(--accent);stroke-width:2.2;fill:none}
+svg .g-sel-t{fill:var(--accent);font-family:var(--font-display);font-weight:700;font-size:21px;paint-order:stroke;stroke:var(--surface);stroke-width:5px;stroke-linejoin:round}
+svg .g-lab{fill:var(--ink-2);font-family:var(--font-body);font-size:15px;font-weight:600;paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round}
+svg .g-lab-gw{fill:var(--gw);font-family:var(--font-body);font-size:15px;font-weight:700;paint-order:stroke;stroke:var(--sand);stroke-width:4px;stroke-linejoin:round}
+svg.marsch .g-lab-gw{stroke:var(--clay)}
+svg .g-lab-soil{fill:var(--ink);font-family:var(--font-body);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--sand);stroke-width:4px;stroke-linejoin:round}
+svg .g-dim{stroke:var(--ink);stroke-width:1.6}
+svg .g-dimt{fill:var(--ink);font-family:var(--font-body);font-size:16px;font-weight:700;paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round}
+svg .band{fill:transparent;cursor:pointer}
+svg .band:hover{fill:var(--hl)}
+svg .only-rain,svg .only-winter,svg .only-dry{display:none}
+svg[data-state="rain"] .only-rain,svg[data-state="winter"] .only-winter,svg[data-state="dry"] .only-dry{display:inline}
+.bio-chips{margin-block:14px 18px}
+.bio-chips .chip{padding:6px 13px}
+.bio-chips .num{font-family:var(--font-display);font-weight:700;color:var(--ink-3);font-size:12px}
+
+/* Biotope detail */
+.bio-detail{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.bio-detail h2{font-size:var(--fs-2xl)}
+.bio-detail .alt{color:var(--ink-3);font-size:var(--fs-l);font-family:var(--font-display);font-weight:500;margin-top:2px}
+.bio-grid{display:grid;grid-template-columns:1fr;gap:26px;margin-top:18px}
+@media (min-width:900px){.bio-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}}
+.bio-grid > div{min-width:0;display:flex;flex-direction:column;gap:18px}
+.lead{font-size:var(--fs-l);color:var(--ink);max-width:62ch}
+dl.facts{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:0}
+dl.facts dt{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);font-weight:600;padding-top:3px}
+dl.facts dd{margin:0}
+.block h3{font-size:var(--fs-s);font-family:var(--font-body);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);font-weight:700;margin-bottom:8px}
+.struct-list{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.struct-list li{padding-left:16px;position:relative}
+.struct-list li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--accent)}
+.struct-list .w{display:block;color:var(--ink-3);font-size:var(--fs-s)}
+.fgroup{display:flex;flex-direction:column;gap:6px}
+.mini-bloom{display:grid;grid-template-columns:repeat(12,1fr);gap:3px;align-items:end;height:58px}
+.mini-bloom .b{background:var(--accent);border-radius:3px 3px 0 0;min-height:2px;opacity:.85}
+.mini-bloom .b.zero{background:var(--surface-2);opacity:1}
+.mini-lbl{display:grid;grid-template-columns:repeat(12,1fr);gap:3px;font-size:10.5px;color:var(--ink-3);text-align:center;margin-top:3px}
+
+/* Plants */
+.filters{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:16px;display:flex;flex-direction:column;gap:12px}
+.f-top{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.search{flex:1 1 260px;min-width:0;position:relative}
+.search input{width:100%;padding:10px 14px 10px 38px;border-radius:999px;border:1px solid var(--line-strong);background:var(--bg);font:inherit;color:var(--ink)}
+.search input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:var(--ink-3);fill:none;stroke-width:2}
+.f-toggle{display:inline-flex}
+.f-panel{display:none;gap:12px 18px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));align-items:end}
+.filters.open .f-panel{display:grid}
+@media (min-width:860px){.f-toggle{display:none}.f-panel{display:grid}}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field > span{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);font-weight:600}
+.field select{padding:8px 10px;border-radius:8px;border:1px solid var(--line-strong);background:var(--bg);color:var(--ink);font:inherit;font-size:var(--fs-s);min-width:0}
+.zone-toggles{display:flex;gap:6px;flex-wrap:wrap}
+.zone-toggles button{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:5px 9px;cursor:pointer;font-size:var(--fs-s)}
+.zone-toggles button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.check{display:flex;align-items:center;gap:8px;font-size:var(--fs-s);cursor:pointer;padding-block:6px}
+.check input{width:17px;height:17px;accent-color:var(--accent)}
+.f-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:var(--fs-s);color:var(--ink-2)}
+.linkbtn{border:0;background:none;color:var(--accent);cursor:pointer;font-weight:600;padding:0;font-size:var(--fs-s);text-decoration:underline;text-underline-offset:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 14px 12px;display:flex;flex-direction:column;gap:10px;cursor:pointer;transition:border-color .15s, transform .15s}
+.card:hover{border-color:var(--line-strong);transform:translateY(-1px)}
+.card-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card-top .type{font-size:var(--fs-xs);color:var(--ink-3);font-weight:600;text-transform:uppercase;letter-spacing:.07em}
+.card h3{font-size:var(--fs-l)}
+.card h3 button{all:unset;cursor:pointer}
+.card h3 button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.card .names{display:flex;flex-direction:column;gap:1px}
+.card .en{font-size:var(--fs-s);color:var(--ink-3)}
+.meters{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;align-items:center;font-size:var(--fs-xs);color:var(--ink-3)}
+.meter{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;max-width:120px}
+.meter i{height:7px;border-radius:2px;background:var(--surface-2)}
+.meter.fl i.on{background:var(--m-flood)} .meter.dr i.on{background:var(--m-drought)} .meter.po i.on{background:var(--m-poll)}
+.strip{display:grid;grid-template-columns:repeat(12,1fr);gap:2px}
+.strip i{height:9px;border-radius:2px;background:var(--surface-2)}
+.strip i.on{background:var(--c);box-shadow:inset 0 0 0 1px var(--line-strong)}
+.strip-l{display:grid;grid-template-columns:repeat(12,1fr);gap:2px;font-size:9.5px;color:var(--ink-3);text-align:center;margin-top:2px}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:4px;flex-wrap:wrap}
+.card-foot .facts{font-size:var(--fs-xs);color:var(--ink-2);display:flex;gap:10px;flex-wrap:wrap}
+.mixbtn{border:1px solid var(--line-strong);background:var(--surface);border-radius:999px;padding:5px 12px;font-size:var(--fs-xs);font-weight:700;cursor:pointer;white-space:nowrap}
+.mixbtn:hover{border-color:var(--accent)}
+.mixbtn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.empty{padding:40px 20px;text-align:center;color:var(--ink-2);background:var(--surface);border:1px dashed var(--line-strong);border-radius:14px;display:flex;flex-direction:column;align-items:center;gap:12px}
+details.avoid{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+details.avoid summary{cursor:pointer;padding:14px 18px;font-family:var(--font-display);font-weight:700;font-size:var(--fs-l);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px}
+details.avoid summary::-webkit-details-marker{display:none}
+details.avoid summary::after{content:"+";font-size:22px;color:var(--ink-3)}
+details.avoid[open] summary::after{content:"−"}
+.avoid-list{display:grid;gap:0;padding:0 18px 12px}
+.avoid-row{display:grid;grid-template-columns:1fr;gap:4px 18px;padding:12px 0;border-top:1px solid var(--line)}
+@media (min-width:760px){.avoid-row{grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) minmax(0,1.2fr)}}
+.avoid-row > div{min-width:0}
+
+/* Fauna */
+.fcard .grp{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
+.fcard .tx{font-size:var(--fs-s);color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.fcard .counts{font-size:var(--fs-xs);color:var(--ink-3)}
+
+/* Mix */
+.banner{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--accent-soft);border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:var(--fs-s)}
+.banner p{max-width:70ch}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.tile .v{font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+.tile .v small{font-size:var(--fs-m);color:var(--ink-3);font-weight:500}
+.tile .k{font-size:var(--fs-xs);color:var(--ink-3);margin-top:4px;text-transform:uppercase;letter-spacing:.07em;font-weight:600}
+.tile .zones{display:flex;gap:5px;margin-top:4px}
+.tile .zones .zb.off{opacity:.25}
+.mix-grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media (min-width:980px){.mix-grid{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}}
+.mix-grid > div{min-width:0;display:flex;flex-direction:column;gap:16px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.box h3{font-size:var(--fs-l);margin-bottom:2px}
+.box .sub{font-size:var(--fs-s);color:var(--ink-3);margin-bottom:12px}
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto}
+.chart .ax{fill:var(--ink-3);font-size:11px;font-family:var(--font-body)}
+.chart .grid-l{stroke:var(--line);stroke-width:1}
+.chart .base{stroke:var(--line-strong);stroke-width:1}
+.chart .bar{fill:var(--accent)}
+.chart .gap-t{fill:var(--warn);font-size:10.5px;font-weight:700;font-family:var(--font-body)}
+.chart .hit{fill:transparent;cursor:pointer}
+.chart .hit:hover + .bar, .chart .col:hover .bar{opacity:.8}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:var(--fs-xs);padding:8px 10px;border-radius:8px;max-width:240px;box-shadow:var(--shadow);z-index:5;line-height:1.4}
+.tip b{font-size:var(--fs-s)}
+.cal{display:flex;flex-direction:column;gap:4px;overflow-x:auto}
+.cal-row{display:grid;grid-template-columns:minmax(110px,170px) repeat(12,minmax(18px,1fr));gap:0;align-items:center;min-width:420px}
+.cal-row .nm{font-size:var(--fs-s);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:8px;display:flex;align-items:center;gap:6px;min-width:0;cursor:pointer;background:none;border:0;text-align:left}
+.cal-row .nm span{overflow:hidden;text-overflow:ellipsis}
+.cal-row .bar{height:14px;border-radius:4px;background:var(--c);box-shadow:inset 0 0 0 1px var(--line-strong)}
+.cal-row.hd{font-size:10.5px;color:var(--ink-3);text-align:center;border-bottom:1px solid var(--line);padding-bottom:3px;margin-bottom:2px}
+.cal-row .mcol{height:100%}
+.cal-body{position:relative}
+.cal-body .row-bg{background-image:linear-gradient(to right, var(--line) 1px, transparent 1px)}
+.notes{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
+.notes li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;font-size:var(--fs-s)}
+.notes .ic{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:800;margin-top:1px}
+.notes .ic.w{background:var(--warn-soft);color:var(--warn)}
+.notes .ic.ok{background:var(--accent-soft);color:var(--accent)}
+.notes .ic.i{background:var(--surface-2);color:var(--ink-2)}
+textarea.export{width:100%;min-height:150px;border-radius:10px;border:1px solid var(--line-strong);background:var(--bg);color:var(--ink);font:inherit;font-size:var(--fs-s);padding:10px;resize:vertical}
+.row-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:var(--fs-s)}
+
+/* Guide */
+.guide{display:grid;grid-template-columns:1fr;gap:24px}
+@media (min-width:980px){.guide{grid-template-columns:230px minmax(0,1fr)}}
+.toc{display:flex;gap:6px;flex-wrap:wrap}
+@media (min-width:980px){.toc{position:sticky;top:70px;align-self:start;flex-direction:column;flex-wrap:nowrap;gap:2px}}
+.toc button{border:0;background:none;text-align:left;padding:6px 10px;border-radius:8px;cursor:pointer;color:var(--ink-2);font-size:var(--fs-s)}
+@media (max-width:979px){.toc button{border:1px solid var(--line);background:var(--surface);border-radius:999px}}
+.toc button:hover{background:var(--surface-2);color:var(--ink)}
+.toc .num{font-family:var(--font-display);font-weight:700;color:var(--ink-3);margin-right:6px;font-size:12px}
+.g-body{display:flex;flex-direction:column;gap:14px;min-width:0}
+.g-sec{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px;scroll-margin-top:70px}
+.g-sec h2{font-size:var(--fs-xl);margin-bottom:12px;display:flex;gap:10px;align-items:baseline}
+.g-sec h2 .num{font-size:var(--fs-s);color:var(--accent);font-family:var(--font-display)}
+.g-sec p,.g-sec li{max-width:72ch}
+.g-sec ul{padding-left:20px;margin:10px 0;display:flex;flex-direction:column;gap:8px}
+.g-sec > p + p{margin-top:10px}
+.duo{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:700px){.duo{grid-template-columns:1fr 1fr}}
+.duo-card{border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.duo-card.geest{background:color-mix(in srgb, var(--sand) 55%, var(--surface))}
+.duo-card.marsch{background:color-mix(in srgb, var(--clay) 40%, var(--surface))}
+.duo-card h4{font-size:var(--fs-l)}
+.keybox{margin-top:14px;border:1.5px solid var(--accent);border-radius:12px;padding:14px 16px}
+.keybox h4{font-size:var(--fs-m);margin-bottom:6px}
+.tbl-wrap{overflow-x:auto;margin-top:12px;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:var(--fs-s)}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.07em;color:var(--ink-3);font-weight:700;background:var(--bg)}
+tr:last-child td{border-bottom:0}
+table.types{min-width:760px} table.structs{min-width:640px}
+table.care{min-width:620px;font-variant-numeric:tabular-nums}
+table.care td.m,table.care th.m{text-align:center;padding:6px 2px;width:34px}
+table.care td.m i{display:block;height:14px;border-radius:3px;background:transparent}
+table.care td.m.on i{background:var(--accent);opacity:.85}
+table.care td.m.cut i{background:var(--warn-soft)}
+.g-sec .refs a{word-break:break-word}
+
+/* Sheet */
+.sheet-wrap{position:fixed;inset:0;z-index:50}
+.scrim{position:absolute;inset:0;background:rgba(10,18,14,.45);animation:fade .2s ease}
+.sheet{position:absolute;background:var(--surface);box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden}
+@media (min-width:760px){.sheet{top:0;right:0;bottom:0;width:min(470px,92vw);animation:slideIn .25s ease}}
+@media (max-width:759px){.sheet{left:0;right:0;bottom:0;max-height:88vh;border-radius:18px 18px 0 0;animation:slideUp .25s ease;padding-bottom:env(safe-area-inset-bottom,0px)}}
+.sheet-head{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line);gap:8px}
+.sheet-body{overflow-y:auto;padding:18px 20px 28px;display:flex;flex-direction:column;gap:18px}
+.iconbtn{border:1px solid var(--line);background:var(--surface);border-radius:999px;height:34px;padding:0 12px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-s);font-weight:600}
+.iconbtn:hover{border-color:var(--accent)}
+.sheet h2{font-size:var(--fs-2xl)}
+.sheet .latin{font-size:var(--fs-l);color:var(--ink-2)}
+.kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 14px}
+.kv div{min-width:0}
+.kv .k{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);font-weight:600}
+.kv .v{display:flex;align-items:center;gap:6px}
+.mrow{display:grid;grid-template-columns:110px 1fr auto;gap:10px;align-items:center;font-size:var(--fs-s)}
+.mrow .meter{max-width:none}
+.mrow .meter i{height:9px}
+.rolegrp{display:flex;flex-direction:column;gap:6px}
+.rolegrp + .rolegrp{margin-top:8px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-size:var(--fs-s);font-weight:600;z-index:60;box-shadow:var(--shadow);max-width:calc(100vw - 32px)}
+footer{border-top:1px solid var(--line);padding-block:18px 30px;font-size:var(--fs-s);color:var(--ink-3)}
+footer{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between}
+footer a{color:var(--ink-2);font-weight:600;text-decoration:none}
+footer a:hover{color:var(--accent)}
+[hidden]{display:none!important}
+@keyframes fade{from{opacity:0}}
+@keyframes slideIn{from{transform:translateX(30px);opacity:0}}
+@keyframes slideUp{from{transform:translateY(40px);opacity:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:520px){.mast h1{font-size:30px}.bio-detail{padding:16px}.g-sec{padding:16px}.panel-head h2{font-size:24px}}
+</style>
+<!--HEAD-END-->
+
+<header class="wrap mast">
+  <div class="mast-row">
+    <div>
+      <p class="eyebrow" id="mast-eyebrow"></p>
+      <h1>Wechselfeucht <span>Hamburg</span></h1>
+      <p class="sub" id="mast-sub"></p>
+    </div>
+    <div class="seg" role="group" aria-label="Language / Sprache">
+      <button type="button" id="lang-en" data-act="lang" data-v="en" aria-pressed="true">EN</button>
+      <button type="button" id="lang-de" data-act="lang" data-v="de" aria-pressed="false">DE</button>
+    </div>
+  </div>
+</header>
+<nav class="tabs" aria-label="Sections">
+  <div class="wrap tabs-in" role="tablist" id="tablist"></div>
+</nav>
+<main class="wrap">
+  <section id="p-biotopes" role="tabpanel"></section>
+  <section id="p-plants" role="tabpanel" hidden></section>
+  <section id="p-fauna" role="tabpanel" hidden></section>
+  <section id="p-mix" role="tabpanel" hidden></section>
+  <section id="p-guide" role="tabpanel" hidden></section>
+</main>
+<footer class="wrap"><p id="foot"></p>__HOMELINK__</footer>
+<div class="sheet-wrap" id="sheet" hidden>
+  <div class="scrim" data-act="sheet-close"></div>
+  <aside class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+    <div class="sheet-head"><span id="sheet-back-slot"></span><button type="button" class="iconbtn" id="sheet-close" data-act="sheet-close"></button></div>
+    <div class="sheet-body" id="sheet-body"></div>
+  </aside>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+const DATA = __DATA__;
+</script>
+<script>
+(function(){
+"use strict";
+/* ---------- i18n ---------- */
+const T = {
+ en:{
+  eyebrow:"Hamburg · north-west German lowlands",
+  sub:"Native plants, plant communities and fauna for swales, ditches and retention basins that are sometimes wet and sometimes dry.",
+  tabs:{biotopes:"Biotopes",plants:"Plants",fauna:"Fauna",mix:"My mix",guide:"Design guide"},
+  bioTitle:"Biotope builder",
+  bioIntro:"Pick a profile and a water state, then tap a zone. Each zone carries its own plant community, with the animals that depend on it.",
+  profile:"Profile", water:"Water",
+  profiles:{geest:"Retention basin · Geest",marsch:"Ditch · Marsch"},
+  states:{dry:"Dry summer",winter:"Winter",rain:"After heavy rain"},
+  stateDesc:{
+   geest:{dry:"Dry summer: the swale floor has dried out and only the pond keeps water. Flood sward and meadow have to cope with drought.",
+          winter:"Winter: the pond is full and the tall-sedge shore is flooded for weeks. The groundwater stays well below the basin.",
+          rain:"After heavy rain: the basin fills to about 30 cm above the swale floor for hours to days, then drains through the vegetated soil layer."},
+   marsch:{dry:"Dry summer: the ditch runs low and its muddy banks fall dry, ideal feeding ground for the bluethroat. The groundwater sinks.",
+          winter:"Winter: groundwater rises to just below the meadow and the reed belt stands in water. The ditch drains the land around it.",
+          rain:"After heavy rain: the ditch fills up to the berm and the tall herbs on the flat bank are briefly flooded. The berm adds storage without deepening the ditch."}},
+  figcap:"Schematic cross-section, vertical scale exaggerated. Tap a zone to open its plant community.",
+  swipe:"Swipe sideways to see the whole profile",
+  svg:{gw:"groundwater",ponding:"≈ 30 cm ponding",topsoil:"vegetated soil layer 20–30 cm",seep:"≥ 1 m to highest groundwater",gwHigh:"close below the surface",drain:"the ditch draws down the groundwater"},
+  where:"Where",regime:"Water regime",soil:"Soil",alliance:"Plant community",
+  core:"Character species",comp:"Companions",faunaUses:"Animals that use it",structures:"Add these structures",care:"Care",
+  addAll:"Add these {n} plants to my mix",added:"Added {n} plants to your mix",already:"All of these plants are already in your mix",
+  bloomYear:"Species in flower, month by month",
+  plantsTitle:"Plant explorer",plantsIntro:"{n} native species for swales, ditches and retention basins in the Hamburg region. Tap a card for details and the animals that use it.",
+  search:"Search German, English or Latin name",filters:"Filters",zone:"Zone",anySoil:"Any soil",anyType:"Any type",anyMonth:"Any month",
+  floodMin:"Flood tolerance",floodAny:"Any",floodN:"{n} or more",floweringIn:"In flower in",type:"Type",sort:"Sort by",
+  sorts:{zone:"Zone",name:"German name",latin:"Latin name",flower:"Flowering time",poll:"Pollinator value"},
+  pollMag:"Pollinator magnets (4–5)",saltOk:"Tolerates road salt",reset:"Reset filters",results:"{n} of {t} species",none:"No species match these filters.",
+  meters:{fl:"Flood",dr:"Drought",po:"Pollinators"},
+  addMix:"+ Mix",inMix:"✓ In mix",addMixLong:"Add to my mix",removeMix:"Remove from my mix",
+  zones:{A:"Swale floor",B:"Slopes & rims",C:"Permanent water",D:"Woody plants"},
+  zonesSub:{A:"temporarily flooded",B:"mostly dry",C:"ponds & ditch edges",D:"shrubs & trees"},
+  types:{grass:"Grass",sedge:"Sedge",rush:"Rush",herb:"Herb",climber:"Scrambler",marginal:"Marginal",amphibious:"Amphibious",shrub:"Shrub",tree:"Tree"},
+  habits:{clump:"Clump-forming",rhizome:"Spreads by rhizomes",stolon:"Spreads by runners",selfseed:"Clump, self-seeds",biennial:"Biennial, self-seeds",tussock:"Tussock-forming",scrambling:"Scrambling",strong:"Strongly spreading",shrub:"Shrub",suckering:"Suckering shrub",tree:"Tree",shortlived:"Short-lived, self-seeds"},
+  soils:{both:"Geest & Marsch",geest:"Geest",marsch:"Marsch"},
+  salts:{low:"Low",med:"Medium",high:"High"},
+  flags:{spread:"Use sparingly",protected:"Protected or rare"},
+  height:"Height",flowering:"Flowering",colour:"Flower colour",habit:"Growth",saltL:"Road salt",typeL:"Type",
+  inBio:"Grows in",asCore:"character species",asComp:"companion",usedBy:"Animals that use it",
+  avoidTitle:"Avoid & watch out",avoidIntro:"Invasive or problematic species that turn up in Hamburg's swales and ditches.",
+  problem:"Problem",action:"What to do",
+  faunaTitle:"Fauna",faunaIntro:"{n} animals that depend on these plant communities and structures. Tap an animal to see which plants and structures it needs.",
+  searchFauna:"Search animals",all:"All",active:"Active",needsPlants:"Plants it needs",needsStruct:"Structures it needs",foundIn:"Found in these biotopes",
+  plantsN:"{n} plants",bioN:"{n} biotopes",noFauna:"No animals match.",
+  mixTitle:"My mix",mixIntro:"Your planting mix, checked for flowering continuity, zone coverage and the fauna it supports.",
+  exampleBanner:"This is an example mix. Clear it to start your own, or add plants from the Plants and Biotopes tabs.",
+  clear:"Clear mix",clearQ:"Remove all {n} plants?",yes:"Yes, clear",cancel:"Cancel",loadEx:"Load example mix",
+  emptyT:"Your mix is empty",emptyP:"Add plants with “+ Mix” in the plant explorer, or load a whole plant community from the biotope builder.",
+  goPlants:"Open plant explorer",goBio:"Open biotope builder",
+  tSpecies:"Species",tZones:"Zones covered",tMonths:"Months with good nectar supply",tMonthsSub:"of 8 (March–October)",tFauna:"Animals supported",
+  nectarT:"Nectar and pollen supply",nectarS:"Species in flower each month with a pollinator value of 3 or more",gap:"gap",
+  calT:"Flowering calendar",calS:"Bars use each species’ flower colour",
+  notesT:"Checks",spreadW:"Strong spreaders: {l}. Fine in large basins; limit them in small swales.",
+  soilW:"The mix combines Geest-only species ({g}) with Marsch-only species ({m}). Check which suit your soil.",
+  gapW:"Thin nectar supply in {mo}. Candidates to close the gap: {l}.",gapW0:"Thin nectar supply in {mo}.",
+  protW:"Use nursery-propagated stock only: {l}.",okNectar:"No gaps in the nectar supply from March to October.",
+  zoneI:"No species yet for: {z}.",
+  supT:"Animals your mix feeds or shelters",supS:"Based on larval food, pollen, nectar, seeds and shelter plants in your mix",specialist:"specialist",
+  exportT:"Plant list",copy:"Copy list",copied:"List copied",copyFail:"Copy blocked here. The text is selected; copy it manually.",
+  guideTitle:"Designing wechselfeucht swales and ditches",guideIntro:"How to shape, plant and maintain rainwater systems so they work hydraulically and become rich biotopes.",
+  showCross:"Show the three states in the cross-section",
+  th:{type:"System",fn:"Function",water:"Water",soil:"Soil",bio:"Biotopes",struct:"Structure",where:"Where and how",who:"Who uses it",task:"Task"},
+  back:"Back",close:"Close",
+  months:["January","February","March","April","May","June","July","August","September","October","November","December"],
+  mi:["J","F","M","A","M","J","J","A","S","O","N","D"],
+  foot:"Values are indicative guide values for planning orientation. Standards and sources are listed in the design guide."
+ },
+ de:{
+  eyebrow:"Hamburg · Nordwestdeutsches Tiefland",
+  sub:"Heimische Pflanzen, Pflanzengesellschaften und Fauna für Mulden, Gräben und Retentionsbecken, die mal nass und mal trocken sind.",
+  tabs:{biotopes:"Biotope",plants:"Pflanzen",fauna:"Fauna",mix:"Meine Mischung",guide:"Planungsleitfaden"},
+  bioTitle:"Biotop-Baukasten",
+  bioIntro:"Wähle ein Profil und einen Wasserstand und tippe dann auf eine Zone. Jede Zone trägt ihre eigene Pflanzengesellschaft – mit den Tieren, die von ihr leben.",
+  profile:"Profil", water:"Wasser",
+  profiles:{geest:"Retentionsbecken · Geest",marsch:"Graben · Marsch"},
+  states:{dry:"Trockener Sommer",winter:"Winter",rain:"Nach Starkregen"},
+  stateDesc:{
+   geest:{dry:"Trockener Sommer: Die Muldensohle ist ausgetrocknet, nur der Teich führt noch Wasser. Flutrasen und Wiese müssen Trockenheit aushalten.",
+          winter:"Winter: Der Teich ist voll, das Großseggenufer steht wochenlang unter Wasser. Das Grundwasser bleibt deutlich unter dem Becken.",
+          rain:"Nach Starkregen: Das Becken staut für Stunden bis Tage bis etwa 30 cm über der Muldensohle ein und versickert dann durch die bewachsene Bodenzone."},
+   marsch:{dry:"Trockener Sommer: Der Graben führt wenig Wasser, die schlammigen Ufer fallen trocken – ideal für das Blaukehlchen. Das Grundwasser sinkt.",
+          winter:"Winter: Das Grundwasser steigt bis knapp unter die Wiese, das Röhricht steht im Wasser. Der Graben entwässert das Umland.",
+          rain:"Nach Starkregen: Der Graben füllt sich bis zur Berme, die Hochstauden am flachen Ufer stehen kurz unter Wasser. Die Berme schafft Speicherraum, ohne den Graben zu vertiefen."}},
+  figcap:"Schematischer Querschnitt, überhöht dargestellt. Tippe auf eine Zone, um ihre Pflanzengesellschaft zu öffnen.",
+  swipe:"Seitlich wischen für das ganze Profil",
+  svg:{gw:"Grundwasser",ponding:"≈ 30 cm Einstau",topsoil:"bewachsene Bodenzone 20–30 cm",seep:"≥ 1 m bis MHGW",gwHigh:"nah unter Flur",drain:"der Graben senkt das Grundwasser ab"},
+  where:"Wo",regime:"Wasserhaushalt",soil:"Boden",alliance:"Pflanzengesellschaft",
+  core:"Kennarten",comp:"Begleiter",faunaUses:"Tiere, die es nutzen",structures:"Diese Strukturen ergänzen",care:"Pflege",
+  addAll:"Diese {n} Pflanzen zur Mischung",added:"{n} Pflanzen zur Mischung hinzugefügt",already:"Alle diese Pflanzen sind schon in deiner Mischung",
+  bloomYear:"Blühende Arten im Jahresverlauf",
+  plantsTitle:"Pflanzen-Explorer",plantsIntro:"{n} heimische Arten für Mulden, Gräben und Retentionsbecken im Raum Hamburg. Tippe auf eine Karte für Details und die Tiere, die sie nutzen.",
+  search:"Deutschen, englischen oder lateinischen Namen suchen",filters:"Filter",zone:"Zone",anySoil:"Alle Böden",anyType:"Alle Typen",anyMonth:"Alle Monate",
+  floodMin:"Überflutungstoleranz",floodAny:"Alle",floodN:"ab {n}",floweringIn:"Blüht im",type:"Typ",sort:"Sortieren nach",
+  sorts:{zone:"Zone",name:"Deutscher Name",latin:"Lateinischer Name",flower:"Blütezeit",poll:"Bestäuberwert"},
+  pollMag:"Insektenmagnete (4–5)",saltOk:"Verträgt Streusalz",reset:"Filter zurücksetzen",results:"{n} von {t} Arten",none:"Keine Art passt zu diesen Filtern.",
+  meters:{fl:"Überflutung",dr:"Trockenheit",po:"Bestäuber"},
+  addMix:"+ Mischung",inMix:"✓ In Mischung",addMixLong:"Zur Mischung hinzufügen",removeMix:"Aus der Mischung entfernen",
+  zones:{A:"Muldensohle",B:"Böschung & Rand",C:"Dauerwasser",D:"Gehölze"},
+  zonesSub:{A:"zeitweise überstaut",B:"meist trocken",C:"Teiche & Grabenränder",D:"Sträucher & Bäume"},
+  types:{grass:"Gras",sedge:"Segge",rush:"Binse",herb:"Staude",climber:"Rankpflanze",marginal:"Sumpf- & Wasserpflanze",amphibious:"Amphibisch",shrub:"Strauch",tree:"Baum"},
+  habits:{clump:"Horstbildend",rhizome:"Breitet sich über Rhizome aus",stolon:"Bildet Ausläufer",selfseed:"Horstig, sät sich aus",biennial:"Zweijährig, sät sich aus",tussock:"Bultbildend",scrambling:"Rankend",strong:"Stark wuchernd",shrub:"Strauch",suckering:"Ausläufer treibender Strauch",tree:"Baum",shortlived:"Kurzlebig, sät sich aus"},
+  soils:{both:"Geest & Marsch",geest:"Geest",marsch:"Marsch"},
+  salts:{low:"Gering",med:"Mittel",high:"Hoch"},
+  flags:{spread:"Sparsam verwenden",protected:"Geschützt oder selten"},
+  height:"Höhe",flowering:"Blüte",colour:"Blütenfarbe",habit:"Wuchs",saltL:"Streusalz",typeL:"Typ",
+  inBio:"Wächst in",asCore:"Kennart",asComp:"Begleiter",usedBy:"Tiere, die sie nutzen",
+  avoidTitle:"Meiden & beobachten",avoidIntro:"Invasive oder problematische Arten, die in Hamburger Mulden und Gräben auftauchen.",
+  problem:"Problem",action:"Was tun",
+  faunaTitle:"Fauna",faunaIntro:"{n} Tierarten, die auf diese Pflanzengesellschaften und Strukturen angewiesen sind. Tippe auf ein Tier, um zu sehen, welche Pflanzen und Strukturen es braucht.",
+  searchFauna:"Tiere suchen",all:"Alle",active:"Aktiv",needsPlants:"Pflanzen, die es braucht",needsStruct:"Strukturen, die es braucht",foundIn:"Vorkommen in diesen Biotopen",
+  plantsN:"{n} Pflanzen",bioN:"{n} Biotope",noFauna:"Kein Tier passt.",
+  mixTitle:"Meine Mischung",mixIntro:"Deine Pflanzenmischung, geprüft auf durchgehende Blüte, Zonenabdeckung und unterstützte Fauna.",
+  exampleBanner:"Dies ist eine Beispielmischung. Leere sie, um deine eigene zu beginnen, oder füge Pflanzen in den Bereichen Pflanzen und Biotope hinzu.",
+  clear:"Mischung leeren",clearQ:"Alle {n} Pflanzen entfernen?",yes:"Ja, leeren",cancel:"Abbrechen",loadEx:"Beispielmischung laden",
+  emptyT:"Deine Mischung ist leer",emptyP:"Füge im Pflanzen-Explorer Arten mit „+ Mischung“ hinzu oder übernimm eine ganze Pflanzengesellschaft aus dem Biotop-Baukasten.",
+  goPlants:"Pflanzen-Explorer öffnen",goBio:"Biotop-Baukasten öffnen",
+  tSpecies:"Arten",tZones:"Abgedeckte Zonen",tMonths:"Monate mit gutem Nektarangebot",tMonthsSub:"von 8 (März–Oktober)",tFauna:"Unterstützte Tiere",
+  nectarT:"Nektar- und Pollenangebot",nectarS:"Blühende Arten pro Monat mit einem Bestäuberwert ab 3",gap:"Lücke",
+  calT:"Blühkalender",calS:"Die Balken zeigen die Blütenfarbe jeder Art",
+  notesT:"Prüfung",spreadW:"Stark wuchernde Arten: {l}. In großen Becken in Ordnung, in kleinen Mulden begrenzen.",
+  soilW:"Die Mischung kombiniert reine Geest-Arten ({g}) mit reinen Marsch-Arten ({m}). Prüfe, welche zu deinem Boden passen.",
+  gapW:"Dünnes Nektarangebot im {mo}. Mögliche Ergänzungen: {l}.",gapW0:"Dünnes Nektarangebot im {mo}.",
+  protW:"Nur Pflanzen aus gärtnerischer Vermehrung verwenden: {l}.",okNectar:"Keine Lücken im Nektarangebot von März bis Oktober.",
+  zoneI:"Noch keine Arten für: {z}.",
+  supT:"Tiere, die deine Mischung ernährt oder beherbergt",supS:"Auf Basis von Raupenfutter, Pollen, Nektar, Samen und Deckungspflanzen in deiner Mischung",specialist:"Spezialist",
+  exportT:"Pflanzenliste",copy:"Liste kopieren",copied:"Liste kopiert",copyFail:"Kopieren ist hier blockiert. Der Text ist markiert; bitte manuell kopieren.",
+  guideTitle:"Wechselfeuchte Mulden und Gräben planen",guideIntro:"Wie man Regenwasseranlagen formt, bepflanzt und pflegt, damit sie hydraulisch funktionieren und zu reichen Biotopen werden.",
+  showCross:"Die drei Zustände im Querschnitt zeigen",
+  th:{type:"Anlage",fn:"Funktion",water:"Wasser",soil:"Boden",bio:"Biotope",struct:"Struktur",where:"Wo und wie",who:"Wer sie nutzt",task:"Maßnahme"},
+  back:"Zurück",close:"Schließen",
+  months:["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"],
+  mi:["J","F","M","A","M","J","J","A","S","O","N","D"],
+  foot:"Alle Werte sind Richtwerte zur Planungsorientierung. Regelwerke und Quellen stehen im Planungsleitfaden."
+ }
+};
+const ROMAN=["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"];
+const TABS=["biotopes","plants","fauna","mix","guide"];
+const EXAMPLE=["deschampsia","carex_hirta","lythrum","filipendula","lysimachia","succisa","iris","eupatorium","cardamine","mentha","centaurea","lotus_cor","caltha","salix_cin"];
+
+/* ---------- indexes ---------- */
+const SP={}, FA={}, BI={};
+DATA.species.forEach(s=>SP[s.id]=s);
+DATA.fauna.forEach(f=>FA[f.id]=f);
+DATA.biotopes.forEach(b=>BI[b.id]=b);
+const spBio={}, spFauna={}, faBio={}, stFauna={};
+DATA.species.forEach(s=>{spBio[s.id]=[];spFauna[s.id]=[];});
+DATA.biotopes.forEach(b=>{
+  b.core.forEach(id=>spBio[id].push({b:b.id,core:true}));
+  b.comp.forEach(id=>spBio[id].push({b:b.id,core:false}));
+  b.fauna.forEach(fid=>{(faBio[fid]=faBio[fid]||[]).push(b.id);});
+});
+DATA.fauna.forEach(f=>{
+  f.pl.forEach(([pid,role])=>spFauna[pid].push({f:f.id,role}));
+  f.sr.forEach(st=>{(stFauna[st]=stFauna[st]||[]).push(f.id);});
+});
+
+/* ---------- state ---------- */
+const store={get(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v);}catch(e){return d;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
+const S={
+  lang:store.get("wf_lang","en")==="de"?"de":"en",
+  tab:"biotopes",
+  profile:"geest", water:"rain", bio:"hochstauden",
+  f:{q:"",zones:new Set(),soil:"",flood:0,month:0,poll:false,salt:false,type:"",sort:"zone"},
+  fq:"", fg:"",
+  mix:null, mixExample:false, confirmClear:false,
+  stack:[], lastFocus:null, filtersOpen:false
+};
+(function initMix(){
+  const m=store.get("wf_mix",null);
+  if(m&&Array.isArray(m.ids)){S.mix=m.ids.filter(id=>SP[id]);S.mixExample=!!m.example;}
+  else{S.mix=EXAMPLE.slice();S.mixExample=true;}
+})();
+function saveMix(){store.set("wf_mix",{ids:S.mix,example:S.mixExample});}
+
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function t(key,vars){
+  let v=key.split(".").reduce((o,k)=>o&&o[k],T[S.lang]);
+  if(v==null) v=key;
+  if(vars&&typeof v==="string") v=v.replace(/\{(\w+)\}/g,(m,k)=>vars[k]!=null?vars[k]:m);
+  return v;
+}
+const L=o=>o?(o[S.lang]!=null?o[S.lang]:o.en):"";
+const col=c=>(DATA.colours[c]||["#999"])[0];
+const colName=c=>{const x=DATA.colours[c];return x?(S.lang==="de"?x[2]:x[1]):c;};
+const range=m=>m[0]===m[1]?ROMAN[m[0]-1]:ROMAN[m[0]-1]+"–"+ROMAN[m[1]-1];
+const inMonth=(m,k)=>k>=m[0]&&k<=m[1];
+const faName=f=>S.lang==="de"?f.de:f.en;
+const faAlt=f=>S.lang==="de"?f.en:f.de;
+const bioName=b=>L(b.n);
+const listJoin=a=>{if(a.length<=1)return a.join("");const and=S.lang==="de"?" und ":" and ";return a.slice(0,-1).join(", ")+and+a[a.length-1];};
+function meter(cls,n){let h=`<span class="meter ${cls}" aria-hidden="true">`;for(let i=1;i<=5;i++)h+=`<i class="${i<=n?"on":""}"></i>`;return h+"</span>";}
+function strip(m,c,labels){let h=`<div class="strip" style="--c:${c}" aria-hidden="true">`;for(let i=1;i<=12;i++)h+=`<i class="${inMonth(m,i)?"on":""}"></i>`;h+="</div>";if(labels){h+=`<div class="strip-l" aria-hidden="true">${T[S.lang].mi.map(x=>`<span>${x}</span>`).join("")}</div>`;}return h;}
+function spChip(id,extra){const s=SP[id];return `<button type="button" class="chip" data-act="sp" data-id="${id}" title="${esc(s.la)}"><span class="dot" style="--c:${col(s.c)}"></span>${esc(s.de)}${extra?` <span class="csub">${esc(extra)}</span>`:""}</button>`;}
+function faChip(id,extra){const f=FA[id];return `<button type="button" class="chip" data-act="fa" data-id="${id}" title="${esc(f.la)}"><span class="gtag">${esc(L(DATA.groups[f.g]))}</span>${esc(faName(f))}${extra?` <span class="csub">${esc(extra)}</span>`:""}</button>`;}
+function bioChip(id,extra){const b=BI[id];return `<button type="button" class="chip" data-act="bio" data-id="${id}">${esc(bioName(b))}${extra?` <span class="csub">${esc(extra)}</span>`:""}</button>`;}
+let toastTimer=null;
+function toast(msg){const el=$("#toast");el.textContent=msg;el.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>{el.hidden=true;},2600);}
+
+/* ---------- chrome ---------- */
+function renderChrome(){
+  document.documentElement.lang=S.lang;
+  $("#mast-eyebrow").textContent=t("eyebrow");
+  $("#mast-sub").textContent=t("sub");
+  $("#lang-en").setAttribute("aria-pressed",S.lang==="en");
+  $("#lang-de").setAttribute("aria-pressed",S.lang==="de");
+  $("#tablist").innerHTML=TABS.map(k=>`<button type="button" class="tab" role="tab" id="tab-${k}" aria-controls="p-${k}" aria-selected="${S.tab===k}" data-act="tab" data-v="${k}">${esc(t("tabs."+k))}${k==="mix"?` <span class="badge" id="mix-badge">${S.mix.length}</span>`:""}</button>`).join("");
+  TABS.forEach(k=>{$("#p-"+k).hidden=S.tab!==k;});
+  $("#foot").textContent=t("foot");
+  $("#sheet-close").textContent=t("close");
+}
+function revealTab(){const a=document.querySelector(".tab[aria-selected='true']");if(a&&a.scrollIntoView)a.scrollIntoView({block:"nearest",inline:"nearest"});}
+function updateBadge(){const b=$("#mix-badge");if(b)b.textContent=S.mix.length;}
+
+/* ---------- cross-section ---------- */
+const PROFILES={
+  geest:{terrain:[[0,100],[110,100],[140,108],[270,165],[390,188],[420,193],[450,197],[480,192],[510,198],[590,228],[680,262],[700,272],[735,282],[770,274],[790,262],[850,200],[900,150],[940,128],[1000,124]],
+    bands:[[0,140,"magerrasen"],[140,270,"feuchtwiese"],[270,390,"hochstauden"],[390,510,"flutrasen"],[510,590,"grossseggen"],[590,680,"roehricht"],[680,790,"offenwasser"],[790,1000,"weiden"]],
+    water:{dry:250,winter:212,rain:165}, gw:{dry:330,winter:300,rain:305}},
+  marsch:{terrain:[[0,120],[230,120],[300,135],[360,160],[410,188],[450,215],[480,240],[510,250],[540,240],[570,215],[610,180],[650,150],[700,128],[860,122],[900,130],[930,133],[960,128],[1000,122]],
+    bands:[[0,230,"feuchtwiese"],[230,360,"hochstauden"],[360,450,"roehricht"],[450,570,"offenwasser"],[570,650,"grossseggen"],[650,860,"weiden"],[860,1000,"flutrasen"]],
+    water:{dry:228,winter:185,rain:150}, gw:{dry:205,winter:140,rain:132}}
+};
+function ty(P,x){const p=P.terrain;for(let i=0;i<p.length-1;i++){if(x<=p[i+1][0]){const [x0,y0]=p[i],[x1,y1]=p[i+1];return y0+(y1-y0)*(x-x0)/(x1-x0);}}return p[p.length-1][1];}
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+const f1=n=>Math.round(n*10)/10;
+function gwPath(pn,state){
+  const P=PROFILES[pn];
+  if(pn==="geest"){const g=P.gw[state];return `M0 ${g} L1000 ${g}`;}
+  const g=P.gw[state], w=P.water[state];
+  return `M0 ${g} L330 ${g+6} C380 ${g+10} 400 ${w} 440 ${w} L580 ${w} C620 ${w} 640 ${g+10} 690 ${g+6} L1000 ${g}`;
+}
+function gwLabY(pn,st){const g=PROFILES[pn].gw[st];return pn==="marsch"?g+18:g-7;}
+function vegSVG(pn){
+  const P=PROFILES[pn]; let out="", fl="";
+  P.bands.forEach(([x0,x1,bid],bi)=>{
+    const r=rng(bi*97+(pn==="geest"?11:53)); const type=BI[bid].veg; let g="";
+    const Y=x=>ty(P,x);
+    if(type==="low"){
+      for(let x=x0+4;x<x1-2;x+=7){const y=Y(x),h=6+r()*5;g+=`<path class="g-veg" stroke-width="1.6" d="M${f1(x)} ${f1(y)} l-2 ${f1(-h)} M${f1(x)} ${f1(y)} l0 ${f1(-h-2)} M${f1(x)} ${f1(y)} l2.4 ${f1(-h+1)}"/>`;if(r()<.28)g+=`<circle class="g-f2" cx="${f1(x+3)}" cy="${f1(y-h-1)}" r="2.3"/>`;}
+    } else if(type==="dry"){
+      for(let x=x0+3;x<x1-2;x+=6){const y=Y(x),h=8+r()*7;g+=`<path class="g-veg2" stroke-width="1.3" d="M${f1(x)} ${f1(y)} q-1 ${f1(-h/2)} -3 ${f1(-h)} M${f1(x)} ${f1(y)} q1 ${f1(-h/2)} 2.5 ${f1(-h-2)}"/>`;
+        const k=r(); if(k<.35){const hh=h+6+r()*6;const c=k<.12?"g-f4":(k<.24?"g-f2":"g-f3");g+=`<path class="g-veg" stroke-width="1" d="M${f1(x+1)} ${f1(y)} l0 ${f1(-hh)}"/><circle class="${c}" cx="${f1(x+1)}" cy="${f1(y-hh)}" r="2.6"/>`;}}
+    } else if(type==="meadow"){
+      for(let x=x0+3;x<x1-2;x+=6){const y=Y(x),h=13+r()*11;g+=`<path class="g-veg" stroke-width="1.4" d="M${f1(x)} ${f1(y)} q-2 ${f1(-h/2)} -4 ${f1(-h)} M${f1(x)} ${f1(y)} q1 ${f1(-h/2)} 3 ${f1(-h-3)} M${f1(x)} ${f1(y)} l0.5 ${f1(-h+3)}"/>`;
+        const k=r(); if(k<.34){const hh=h+5+r()*8;const c=k<.14?"g-f1":(k<.24?"g-f4":"g-f2");g+=`<path class="g-veg2" stroke-width="1.1" d="M${f1(x)} ${f1(y)} l1 ${f1(-hh)}"/><circle class="${c}" cx="${f1(x+1)}" cy="${f1(y-hh)}" r="3"/>`;}}
+    } else if(type==="tall"){
+      for(let x=x0+5;x<x1-3;x+=9){const y=Y(x),h=42+r()*30,lean=(r()-.5)*6;g+=`<path class="g-veg" stroke-width="1.6" d="M${f1(x)} ${f1(y)} q${f1(lean/2)} ${f1(-h/2)} ${f1(lean)} ${f1(-h)}"/><path class="g-veg2" stroke-width="1.4" d="M${f1(x+lean*.3)} ${f1(y-h*.35)} l-6 -5 M${f1(x+lean*.5)} ${f1(y-h*.55)} l6 -5"/>`;
+        const k=r(),c=k<.4?"g-f3":(k<.75?"g-f1":"g-f2");g+=`<ellipse class="${c}" cx="${f1(x+lean)}" cy="${f1(y-h-4)}" rx="${k<.4?5.5:2.8}" ry="${k<.4?4:7}"/>`;}
+    } else if(type==="sedge"){
+      for(let x=x0+8;x<x1-4;x+=13){const y=Y(x),h=28+r()*14;
+        if(r()<.45)g+=`<ellipse class="g-vegf" cx="${f1(x)}" cy="${f1(y-2)}" rx="7" ry="4"/>`;
+        for(let k=-3;k<=3;k++){const dx=k*5+(r()-.5)*2;g+=`<path class="${k%2?"g-veg":"g-veg2"}" stroke-width="1.4" d="M${f1(x)} ${f1(y-2)} Q${f1(x+dx*.4)} ${f1(y-h)} ${f1(x+dx*1.9)} ${f1(y-h*.45)}"/>`;}}
+    } else if(type==="reed"){
+      for(let x=x0+3;x<x1-2;x+=6){const y=Y(x),h=78+r()*52,lean=(r()-.3)*7;g+=`<path class="g-veg" stroke-width="1.5" d="M${f1(x)} ${f1(y)} q${f1(lean/3)} ${f1(-h/2)} ${f1(lean)} ${f1(-h)}"/><path class="g-veg2" stroke-width="1.2" d="M${f1(x+lean*.4)} ${f1(y-h*.45)} q8 -4 14 2"/>`;
+        if(r()<.18) g+=`<rect class="g-reedf" x="${f1(x+lean*.75-2.6)}" y="${f1(y-h*.82)}" width="5.2" height="15" rx="2.6"/>`;
+        else g+=`<path class="g-reed" stroke-width="2.4" d="M${f1(x+lean)} ${f1(y-h)} q4 3 6 10"/>`;}
+    } else if(type==="water"){
+      const dry=P.water.dry;
+      for(let x=x0+14;x<x1-8;x+=26){const y=Y(x),h=70+r()*22;g+=`<path class="g-veg" stroke-width="1.6" d="M${f1(x)} ${f1(y)} l${f1((r()-.5)*4)} ${f1(-h)}"/>`;
+        const top=y-h; if(r()<.5){for(let k=0;k<5;k++){const a=-Math.PI/2+(k-2)*.38;g+=`<path class="g-veg" stroke-width="1" d="M${f1(x)} ${f1(top)} l${f1(Math.cos(a)*8)} ${f1(Math.sin(a)*8)}"/><circle class="g-f1" cx="${f1(x+Math.cos(a)*8)}" cy="${f1(top+Math.sin(a)*8)}" r="2.2"/>`;}}
+        else {g+=`<path class="g-vegf" d="M${f1(x)} ${f1(top+20)} l-7 9 l7 -4 l7 4 z"/><circle class="g-f3" cx="${f1(x+1)}" cy="${f1(top)}" r="3"/><circle class="g-f3" cx="${f1(x+1)}" cy="${f1(top+8)}" r="3"/>`;}}
+      for(let x=x0+6;x<x1-6;x+=13){if(ty(P,x)>dry+6){fl+=`<ellipse class="g-leaf" cx="${f1(x)}" cy="0" rx="${f1(6+r()*3)}" ry="2.2"/>`;if(r()<.25)fl+=`<circle class="g-f1" cx="${f1(x+2)}" cy="-3" r="2.3"/>`;}}
+    } else if(type==="woody"){
+      const shrub=(x,s)=>{const y=Y(x);let h=`<path class="g-trunk" stroke-width="3" d="M${f1(x)} ${f1(y)} l0 ${f1(-14*s)}"/>`;const cs=[[0,-30],[-13,-22],[13,-23],[-7,-38],[8,-39]];cs.forEach(([dx,dy],i)=>{h+=`<circle class="${i%2?"g-veg2f":"g-vegf"}" cx="${f1(x+dx*s)}" cy="${f1(y+dy*s)}" r="${f1((13-i)*s)}"/>`;});return h;};
+      const tree=(x,s)=>{const y=Y(x);let h=`<path class="g-trunk" stroke-width="5" d="M${f1(x)} ${f1(y)} l0 ${f1(-56*s)} M${f1(x)} ${f1(y-40*s)} l-12 -16 M${f1(x)} ${f1(y-46*s)} l11 -14"/>`;[[0,-78,24],[-18,-64,17],[18,-62,18],[-6,-94,16],[10,-90,15]].forEach(([dx,dy,rr],i)=>{h+=`<circle class="${i%2?"g-veg2f":"g-vegf"}" cx="${f1(x+dx*s)}" cy="${f1(y+dy*s)}" r="${f1(rr*s)}"/>`;});return h;};
+      const pollard=(x)=>{const y=Y(x);let h=`<path class="g-trunk" stroke-width="9" d="M${f1(x)} ${f1(y)} l0 -54"/>`;for(let k=-4;k<=4;k++){const a=-Math.PI/2+k*.28;h+=`<path class="g-veg" stroke-width="1.4" d="M${f1(x)} ${f1(y-54)} q${f1(Math.cos(a)*14)} ${f1(Math.sin(a)*22)} ${f1(Math.cos(a)*24)} ${f1(Math.sin(a)*44)}"/>`;}h+=`<ellipse class="g-veg2f" cx="${f1(x)}" cy="${f1(y-82)}" rx="22" ry="13" opacity=".85"/>`;return h;};
+      if(pn==="geest"){g+=shrub(822,.95)+shrub(866,1.05)+tree(930,1)+shrub(975,.9);}
+      else{g+=pollard(690)+shrub(737,1)+pollard(785)+shrub(830,.9);}
+    }
+    out+=`<g>${g}</g>`;
+  });
+  return {veg:out,float:fl};
+}
+function crossSVG(){
+  const pn=S.profile,P=PROFILES[pn],st=S.water,lab=T[S.lang].svg;
+  const ground=P.terrain.map((p,i)=>(i?"L":"M")+p[0]+" "+p[1]).join(" ");
+  const groundClosed=ground+" L1000 360 L0 360 Z";
+  const id=pn;
+  const {veg,float}=vegSVG(pn);
+  let defs=`<defs><clipPath id="clip-${id}"><path d="${groundClosed}"/></clipPath>`;
+  if(pn==="geest") defs+=`<pattern id="pat-${id}" width="22" height="16" patternUnits="userSpaceOnUse"><rect class="g-sand" width="22" height="16"/><circle class="g-sanddot" cx="4" cy="4" r="1.3"/><circle class="g-sanddot" cx="15" cy="11" r="1.1"/><circle class="g-sanddot" cx="11" cy="2" r=".8"/></pattern>`;
+  else defs+=`<pattern id="pat-${id}" width="30" height="10" patternUnits="userSpaceOnUse"><rect class="g-clay" width="30" height="10"/><path class="g-clayline" d="M0 5 L30 5"/></pattern>`;
+  defs+="</defs>";
+  const sel=P.bands.find(b=>b[2]===S.bio);
+  let hl="",selMark="";
+  if(sel){const [x0,x1]=sel;hl=`<rect class="g-hl" x="${x0}" y="0" width="${x1-x0}" height="340"/>`;
+    const cx=Math.min(Math.max((x0+x1)/2,120),880);
+    selMark=`<path class="g-sel" d="M${x0+4} 46 L${x0+4} 38 L${x1-4} 38 L${x1-4} 46"/><text class="g-sel-t" x="${cx}" y="26" text-anchor="middle">${esc(bioName(BI[S.bio]))}</text>`;}
+  let ann="";
+  if(pn==="geest"){
+    ann+=`<g class="only-rain"><path class="g-dim" d="M456 195 L456 166 M450 195 L462 195 M450 165 L462 165"/><text class="g-dimt" x="468" y="152">${esc(lab.ponding)}</text></g>`;
+    ann+=`<text class="g-lab-soil" x="12" y="153">${esc(lab.topsoil)}</text>`;
+    ann+=`<g class="only-winter"><path class="g-dim" d="M560 ${f1(ty(P,560))} L560 299 M554 299 L566 299"/><text class="g-lab-gw" x="568" y="320">${esc(lab.seep)}</text></g>`;
+    ann+=`<text class="g-lab-gw" id="gw-lab" x="18" y="${gwLabY(pn,st)}">${esc(lab.gw)}</text>`;
+  } else {
+    ann+=`<text class="g-lab-gw" id="gw-lab" x="18" y="${gwLabY(pn,st)}">${esc(lab.gw)}</text><text class="g-lab-gw only-winter" x="18" y="${P.gw.winter+36}">${esc(lab.gwHigh)}</text>`;
+    ann+=`<text class="g-lab-gw only-dry" x="640" y="296">${esc(lab.drain)}</text>`;
+  }
+  const bands=P.bands.map(([x0,x1,bid])=>`<rect class="band" x="${x0}" y="0" width="${x1-x0}" height="340" data-act="bio" data-id="${bid}" role="button" tabindex="0" aria-label="${esc(bioName(BI[bid]))}"><title>${esc(bioName(BI[bid]))}</title></rect>`).join("");
+  return `<svg viewBox="0 0 1000 340" class="${pn}" data-state="${st}" role="group" aria-label="${esc(t("profiles."+pn))}: ${esc(t("states."+st))}" xmlns="http://www.w3.org/2000/svg">
+  ${defs}${hl}
+  <g class="g-wgrp" id="wgrp" style="transform:translateY(${P.water[st]}px)"><rect class="g-water" x="-10" y="0" width="1020" height="420"/><line class="g-wline" x1="-10" y1="0" x2="1010" y2="0"/>${float}</g>
+  <path d="${groundClosed}" fill="url(#pat-${id})"/>
+  <g clip-path="url(#clip-${id})"><path class="g-top" stroke-width="50" d="${ground}"/><path class="g-gw" id="gw-path" d="${gwPath(pn,st)}"/></g>
+  <path class="g-surface" d="${ground}"/>
+  ${veg}${ann}${selMark}${bands}</svg>`;
+}
+function updateWater(){
+  const P=PROFILES[S.profile],svg=$("#cross svg");if(!svg)return;
+  svg.setAttribute("data-state",S.water);
+  svg.setAttribute("aria-label",`${t("profiles."+S.profile)}: ${t("states."+S.water)}`);
+  $("#wgrp").style.transform=`translateY(${P.water[S.water]}px)`;
+  $("#gw-path").setAttribute("d",gwPath(S.profile,S.water));
+  $("#gw-lab").setAttribute("y",gwLabY(S.profile,S.water));
+  $("#state-desc").textContent=t("stateDesc."+S.profile+"."+S.water);
+  document.querySelectorAll("[data-act='water']").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===S.water));
+}
+function bioDetail(){
+  const b=BI[S.bio]; const all=b.core.concat(b.comp);
+  const counts=[];for(let i=1;i<=12;i++)counts.push(all.filter(id=>inMonth(SP[id].m,i)).length);
+  const mx=Math.max(1,...counts);
+  const bars=counts.map((c,i)=>`<div class="b${c?"":" zero"}" style="height:${c?Math.max(8,Math.round(c/mx*100)):6}%" title="${esc(T[S.lang].months[i])}: ${c}"></div>`).join("");
+  const groups={};b.fauna.forEach(fid=>{const g=FA[fid].g;(groups[g]=groups[g]||[]).push(fid);});
+  const fauna=Object.keys(DATA.groups).filter(g=>groups[g]).map(g=>groups[g].map(fid=>faChip(fid)).join("")).join("");
+  const alt=S.lang==="de"?b.n.en:b.n.de;
+  return `<article class="bio-detail" aria-live="polite">
+   <p class="eyebrow">${esc(t("alliance"))} · <span class="latin" style="text-transform:none;letter-spacing:0;font-size:13px">${esc(L(b.al))}</span></p>
+   <h2 style="margin-top:6px">${esc(bioName(b))}</h2><p class="alt">${esc(alt)}</p>
+   <div class="bio-grid">
+    <div>
+      <p class="lead">${esc(L(b.d))}</p>
+      <dl class="facts"><dt>${esc(t("where"))}</dt><dd>${esc(L(b.wh))}</dd><dt>${esc(t("regime"))}</dt><dd>${esc(L(b.rg))}</dd><dt>${esc(t("soil"))}</dt><dd>${esc(t("soils."+b.so))}</dd></dl>
+      <div class="block"><h3>${esc(t("structures"))}</h3><ul class="struct-list">${b.sr.map(k=>`<li>${esc(L(DATA.struct[k]))}<span class="w">${esc(S.lang==="de"?DATA.struct[k].wde:DATA.struct[k].wen)}</span></li>`).join("")}</ul></div>
+      <div class="block"><h3>${esc(t("care"))}</h3><p>${esc(L(b.care))}</p></div>
+    </div>
+    <div>
+      <div class="block"><h3>${esc(t("bloomYear"))}</h3><div class="mini-bloom" role="img" aria-label="${esc(t("bloomYear"))}">${bars}</div><div class="mini-lbl">${T[S.lang].mi.map(x=>`<span>${x}</span>`).join("")}</div></div>
+      <div class="block"><h3>${esc(t("core"))}</h3><div class="chips">${b.core.map(id=>spChip(id)).join("")}</div></div>
+      <div class="block"><h3>${esc(t("comp"))}</h3><div class="chips">${b.comp.map(id=>spChip(id)).join("")}</div></div>
+      <div><button type="button" class="btn primary" data-act="mix-add-bio" data-id="${b.id}">${esc(t("addAll",{n:all.length}))}</button></div>
+      <div class="block"><h3>${esc(t("faunaUses"))}</h3><div class="chips">${fauna}</div></div>
+    </div>
+   </div></article>`;
+}
+function renderBiotopes(){
+  const P=PROFILES[S.profile];
+  if(!P.bands.some(b=>b[2]===S.bio)) S.bio=P.bands[2][2];
+  $("#p-biotopes").innerHTML=`
+  <div class="panel-head"><div><h2>${esc(t("bioTitle"))}</h2><p>${esc(t("bioIntro"))}</p></div></div>
+  <div class="bio-controls">
+    <span class="lbl">${esc(t("profile"))}</span>
+    <div class="seg" role="group" aria-label="${esc(t("profile"))}">${["geest","marsch"].map(p=>`<button type="button" data-act="profile" data-v="${p}" aria-pressed="${S.profile===p}">${esc(t("profiles."+p))}</button>`).join("")}</div>
+    <span class="lbl">${esc(t("water"))}</span>
+    <div class="seg" role="group" aria-label="${esc(t("water"))}">${["dry","winter","rain"].map(w=>`<button type="button" data-act="water" data-v="${w}" aria-pressed="${S.water===w}">${esc(t("states."+w))}</button>`).join("")}</div>
+  </div>
+  <figure class="figure"><div class="fig-scroll" id="cross">${crossSVG()}</div>
+    <figcaption class="fig-foot"><span class="state" id="state-desc">${esc(t("stateDesc."+S.profile+"."+S.water))}</span><span>${esc(t("figcap"))} <span class="swipe">${esc(t("swipe"))}</span></span></figcaption></figure>
+  <div class="chips bio-chips" role="group">${P.bands.map(([,,bid],i)=>`<button type="button" class="chip${bid===S.bio?" on":""}" data-act="bio" data-id="${bid}" aria-pressed="${bid===S.bio}"><span class="num">${i+1}</span>${esc(bioName(BI[bid]))}</button>`).join("")}</div>
+  <div id="bio-detail">${bioDetail()}</div>`;
+}
+function selectBio(id,scroll){
+  S.bio=id;
+  if(!PROFILES[S.profile].bands.some(b=>b[2]===id)){S.profile=S.profile==="geest"?"marsch":"geest";}
+  if(S.tab!=="biotopes"){setTab("biotopes");}
+  else renderBiotopes();
+  if(scroll){const el=$("#bio-detail");if(el)el.scrollIntoView({behavior:"smooth",block:"start"});}
+}
+
+/* ---------- plants ---------- */
+function filterSpecies(){
+  const f=S.f, q=f.q.trim().toLowerCase();
+  let list=DATA.species.filter(s=>{
+    if(q&&!(s.de.toLowerCase().includes(q)||s.en.toLowerCase().includes(q)||s.la.toLowerCase().includes(q)))return false;
+    if(f.zones.size&&!f.zones.has(s.z))return false;
+    if(f.soil&&!(s.so===f.soil||s.so==="both"))return false;
+    if(f.flood&&s.fl<f.flood)return false;
+    if(f.month&&!inMonth(s.m,f.month))return false;
+    if(f.poll&&s.p<4)return false;
+    if(f.salt&&s.sa==="low")return false;
+    if(f.type&&s.t!==f.type)return false;
+    return true;});
+  const coll=new Intl.Collator(S.lang);
+  const by={zone:(a,b)=>a.z.localeCompare(b.z)||coll.compare(a.de,b.de),name:(a,b)=>coll.compare(a.de,b.de),latin:(a,b)=>a.la.localeCompare(b.la),
+    flower:(a,b)=>a.m[0]-b.m[0]||a.m[1]-b.m[1]||coll.compare(a.de,b.de),poll:(a,b)=>b.p-a.p||coll.compare(a.de,b.de)};
+  return list.sort(by[f.sort]);
+}
+function spCard(s){
+  const inm=S.mix.includes(s.id);
+  const flags=s.f.map(fl=>`<span class="pill warn">${esc(t("flags."+fl))}</span>`).join("");
+  return `<article class="card" data-act="sp" data-id="${s.id}">
+   <div class="card-top"><span class="zb ${s.z}" title="${esc(t("zones."+s.z))}">${s.z}</span><span class="type">${esc(t("types."+s.t))}</span>${flags}</div>
+   <div class="names"><h3><button type="button" data-act="sp" data-id="${s.id}">${esc(s.de)}</button></h3><span class="latin">${esc(s.la)}</span>${S.lang==="en"?`<span class="en">${esc(s.en)}</span>`:""}</div>
+   <div class="meters"><span>${esc(t("meters.fl"))}</span>${meter("fl",s.fl)}<span>${esc(t("meters.dr"))}</span>${meter("dr",s.dr)}<span>${esc(t("meters.po"))}</span>${meter("po",s.p)}</div>
+   <div>${strip(s.m,col(s.c),true)}</div>
+   <div class="card-foot"><span class="facts"><span>${esc(s.h)}</span><span>${esc(range(s.m))}</span><span>${esc(t("soils."+s.so))}</span></span>
+   <button type="button" class="mixbtn" data-act="mix-toggle" data-id="${s.id}" aria-pressed="${inm}" aria-label="${esc(inm?t("removeMix"):t("addMixLong"))}: ${esc(s.de)}">${esc(inm?t("inMix"):t("addMix"))}</button></div>
+  </article>`;
+}
+function renderPlantResults(){
+  const list=filterSpecies();
+  const active=countFilters();
+  $("#pl-count").innerHTML=`${esc(t("results",{n:list.length,t:DATA.species.length}))}${active?` · <button type="button" class="linkbtn" data-act="f-reset">${esc(t("reset"))}</button>`:""}`;
+  $("#pl-grid").innerHTML=list.length?list.map(spCard).join(""):`<div class="empty" style="grid-column:1/-1"><p>${esc(t("none"))}</p><button type="button" class="btn" data-act="f-reset">${esc(t("reset"))}</button></div>`;
+  const ft=$("#f-toggle-n");if(ft)ft.textContent=active?` (${active})`:"";
+}
+function countFilters(){const f=S.f;return (f.q?1:0)+(f.zones.size?1:0)+(f.soil?1:0)+(f.flood?1:0)+(f.month?1:0)+(f.poll?1:0)+(f.salt?1:0)+(f.type?1:0);}
+function renderPlants(){
+  const f=S.f, types=[...new Set(DATA.species.map(s=>s.t))];
+  const opt=(v,lbl,cur)=>`<option value="${v}"${String(cur)===String(v)?" selected":""}>${esc(lbl)}</option>`;
+  $("#p-plants").innerHTML=`
+  <div class="panel-head"><div><h2>${esc(t("plantsTitle"))}</h2><p>${esc(t("plantsIntro",{n:DATA.species.length}))}</p></div></div>
+  <div class="filters${S.filtersOpen?" open":""}" id="filters">
+    <div class="f-top">
+      <label class="search"><span class="sr">${esc(t("search"))}</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="f-q" placeholder="${esc(t("search"))}" value="${esc(f.q)}" autocomplete="off"></label>
+      <button type="button" class="btn f-toggle" data-act="f-open" aria-expanded="${S.filtersOpen}">${esc(t("filters"))}<span id="f-toggle-n"></span></button>
+    </div>
+    <div class="f-panel">
+      <div class="field" style="grid-column:1/-1"><span>${esc(t("zone"))}</span><div class="zone-toggles">${["A","B","C","D"].map(z=>`<button type="button" data-act="f-zone" data-v="${z}" aria-pressed="${f.zones.has(z)}"><span class="zb ${z}">${z}</span>${esc(t("zones."+z))}</button>`).join("")}</div></div>
+      <label class="field"><span>${esc(t("soil"))}</span><select id="f-soil">${opt("",t("anySoil"),f.soil)}${opt("geest","Geest",f.soil)}${opt("marsch","Marsch",f.soil)}</select></label>
+      <label class="field"><span>${esc(t("floodMin"))}</span><select id="f-flood">${opt(0,t("floodAny"),f.flood)}${[3,4,5].map(n=>opt(n,t("floodN",{n}),f.flood)).join("")}</select></label>
+      <label class="field"><span>${esc(t("floweringIn"))}</span><select id="f-month">${opt(0,t("anyMonth"),f.month)}${T[S.lang].months.map((m,i)=>opt(i+1,m,f.month)).join("")}</select></label>
+      <label class="field"><span>${esc(t("type"))}</span><select id="f-type">${opt("",t("anyType"),f.type)}${types.map(x=>opt(x,t("types."+x),f.type)).join("")}</select></label>
+      <label class="field"><span>${esc(t("sort"))}</span><select id="f-sort">${Object.keys(T.en.sorts).map(k=>opt(k,t("sorts."+k),f.sort)).join("")}</select></label>
+      <div class="field"><label class="check"><input type="checkbox" id="f-poll"${f.poll?" checked":""}>${esc(t("pollMag"))}</label><label class="check"><input type="checkbox" id="f-salt"${f.salt?" checked":""}>${esc(t("saltOk"))}</label></div>
+    </div>
+    <div class="f-meta" id="pl-count"></div>
+  </div>
+  <div class="grid" id="pl-grid"></div>
+  <details class="avoid"><summary>${esc(t("avoidTitle"))} (${DATA.invasive.length})</summary>
+   <div class="avoid-list"><p class="small" style="padding-bottom:8px">${esc(t("avoidIntro"))}</p>
+   ${DATA.invasive.map(r=>`<div class="avoid-row"><div><b>${esc(S.lang==="de"?r.de:r.en)}</b><br><span class="latin small">${esc(r.la)}</span></div><div class="small"><span class="eyebrow">${esc(t("problem"))}</span><br>${esc(L(r.p))}</div><div class="small"><span class="eyebrow">${esc(t("action"))}</span><br>${esc(L(r.a))}</div></div>`).join("")}
+   </div></details>`;
+  renderPlantResults();
+}
+
+/* ---------- fauna ---------- */
+function renderFaunaResults(){
+  const q=S.fq.trim().toLowerCase();
+  const list=DATA.fauna.filter(f=>(!S.fg||f.g===S.fg)&&(!q||f.de.toLowerCase().includes(q)||f.en.toLowerCase().includes(q)||f.la.toLowerCase().includes(q)));
+  $("#fa-grid").innerHTML=list.length?list.map(f=>{
+    const nP=new Set(f.pl.map(p=>p[0])).size, nB=(faBio[f.id]||[]).length;
+    return `<article class="card fcard" data-act="fa" data-id="${f.id}">
+     <div class="card-top"><span class="grp">${esc(L(DATA.groups[f.g]))}</span><span class="type">${esc(t("active"))} ${esc(range(f.m))}</span></div>
+     <div class="names"><h3><button type="button" data-act="fa" data-id="${f.id}">${esc(faName(f))}</button></h3><span class="latin">${esc(f.la)}</span><span class="en">${esc(faAlt(f))}</span></div>
+     <p class="tx">${esc(L(f.tx))}</p>
+     <div class="card-foot"><span class="counts">${nP?esc(t("plantsN",{n:nP}))+" · ":""}${esc(t("bioN",{n:nB}))}</span><span class="pill">${esc(L(f.st))}</span></div>
+    </article>`;}).join(""):`<div class="empty" style="grid-column:1/-1"><p>${esc(t("noFauna"))}</p></div>`;
+}
+function renderFauna(){
+  $("#p-fauna").innerHTML=`
+  <div class="panel-head"><div><h2>${esc(t("faunaTitle"))}</h2><p>${esc(t("faunaIntro",{n:DATA.fauna.length}))}</p></div></div>
+  <div class="filters open"><div class="f-top"><label class="search"><span class="sr">${esc(t("searchFauna"))}</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="fa-q" placeholder="${esc(t("searchFauna"))}" value="${esc(S.fq)}" autocomplete="off"></label></div>
+  <div class="chips" role="group">${[""].concat(Object.keys(DATA.groups)).map(g=>`<button type="button" class="chip" data-act="fa-group" data-v="${g}" aria-pressed="${S.fg===g}">${esc(g?L(DATA.groups[g]):t("all"))}</button>`).join("")}</div></div>
+  <div class="grid" id="fa-grid"></div>`;
+  renderFaunaResults();
+}
+
+/* ---------- mix ---------- */
+function mixAnalysis(){
+  const ids=S.mix, sp=ids.map(id=>SP[id]);
+  const nectar=[];for(let i=1;i<=12;i++)nectar.push(sp.filter(s=>s.p>=3&&inMonth(s.m,i)));
+  const zones={A:0,B:0,C:0,D:0};sp.forEach(s=>zones[s.z]++);
+  const goodMonths=[3,4,5,6,7,8,9,10].filter(m=>nectar[m-1].length>=3).length;
+  const gaps=[3,4,5,6,7,8,9,10].filter(m=>nectar[m-1].length<2);
+  const sup={};
+  ids.forEach(id=>spFauna[id].forEach(({f,role})=>{(sup[f]=sup[f]||new Set()).add(id);}));
+  return {sp,nectar,zones,goodMonths,gaps,sup};
+}
+function nectarChart(nectar,gaps){
+  const W=600,H=210,ml=30,mr=8,mt=14,mb=30,pw=W-ml-mr,ph=H-mt-mb;
+  const counts=nectar.map(a=>a.length),mx=Math.max(4,...counts);
+  const step=mx<=6?1:(mx<=12?2:5), top=Math.ceil(mx/step)*step;
+  const y=v=>mt+ph-v/top*ph, cw=pw/12, bw=cw*.6;
+  let g="";
+  for(let v=0;v<=top;v+=step){g+=`<line class="${v?"grid-l":"base"}" x1="${ml}" x2="${W-mr}" y1="${f1(y(v))}" y2="${f1(y(v))}"/><text class="ax" x="${ml-8}" y="${f1(y(v)+4)}" text-anchor="end">${v}</text>`;}
+  counts.forEach((c,i)=>{
+    const x=ml+i*cw+(cw-bw)/2, yy=y(c), h=mt+ph-yy;
+    g+=`<g class="col" data-i="${i}">`;
+    if(c>0){const r=Math.min(4,h);g+=`<path class="bar" d="M${f1(x)} ${f1(mt+ph)} L${f1(x)} ${f1(yy+r)} Q${f1(x)} ${f1(yy)} ${f1(x+r)} ${f1(yy)} L${f1(x+bw-r)} ${f1(yy)} Q${f1(x+bw)} ${f1(yy)} ${f1(x+bw)} ${f1(yy+r)} L${f1(x+bw)} ${f1(mt+ph)} Z"/>`;}
+    if(gaps.includes(i+1)) g+=`<text class="gap-t" x="${f1(x+bw/2)}" y="${f1(yy-6)}" text-anchor="middle">${esc(t("gap"))}</text>`;
+    g+=`<text class="ax" x="${f1(ml+i*cw+cw/2)}" y="${H-10}" text-anchor="middle">${ROMAN[i]}</text>`;
+    g+=`<rect class="hit" x="${f1(ml+i*cw)}" y="${mt}" width="${f1(cw)}" height="${ph+mb}" data-tip="nectar" data-i="${i}"/></g>`;
+  });
+  return `<div class="chart" id="nectar-chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(t("nectarT"))}: ${counts.map((c,i)=>ROMAN[i]+" "+c).join(", ")}">${g}</svg></div>`;
+}
+function calendar(sp){
+  const rows=sp.slice().sort((a,b)=>a.m[0]-b.m[0]||a.m[1]-b.m[1]||a.de.localeCompare(b.de));
+  const hd=`<div class="cal-row hd"><span></span>${ROMAN.map(r=>`<span>${r}</span>`).join("")}</div>`;
+  return `<div class="cal">${hd}${rows.map(s=>`<div class="cal-row"><button type="button" class="nm" data-act="sp" data-id="${s.id}"><span class="zb ${s.z}" style="width:18px;height:18px;font-size:10px">${s.z}</span><span>${esc(s.de)}</span></button>${Array.from({length:12},(_,i)=>i+1===s.m[0]?`<span class="bar" style="grid-column:${s.m[0]+1} / ${s.m[1]+2};--c:${col(s.c)}" title="${esc(s.de)}: ${esc(range(s.m))}, ${esc(colName(s.c))}"></span>`:"").join("")}</div>`).join("")}</div>`;
+}
+function renderMix(){
+  const el=$("#p-mix");
+  const head=`<div class="panel-head"><div><h2>${esc(t("mixTitle"))}</h2><p>${esc(t("mixIntro"))}</p></div>
+   <div class="row-actions">${S.mix.length?(S.confirmClear?`<span class="confirm">${esc(t("clearQ",{n:S.mix.length}))} <button type="button" class="btn primary" data-act="mix-clear-yes">${esc(t("yes"))}</button><button type="button" class="btn" data-act="mix-clear-no">${esc(t("cancel"))}</button></span>`:`<button type="button" class="btn" data-act="mix-clear">${esc(t("clear"))}</button>`):""}${!S.mixExample?`<button type="button" class="btn ghost" data-act="mix-example">${esc(t("loadEx"))}</button>`:""}</div></div>`;
+  if(!S.mix.length){
+    el.innerHTML=head+`<div class="empty"><h3>${esc(t("emptyT"))}</h3><p style="max-width:52ch">${esc(t("emptyP"))}</p><div class="row-actions" style="justify-content:center"><button type="button" class="btn primary" data-act="tab" data-v="plants">${esc(t("goPlants"))}</button><button type="button" class="btn" data-act="tab" data-v="biotopes">${esc(t("goBio"))}</button></div></div>`;
+    return;}
+  const A=mixAnalysis();
+  const notes=[];
+  const spread=A.sp.filter(s=>s.f.includes("spread")).map(s=>s.de);
+  if(spread.length) notes.push(["w",t("spreadW",{l:listJoin(spread)})]);
+  const g=A.sp.filter(s=>s.so==="geest").map(s=>s.de), m=A.sp.filter(s=>s.so==="marsch").map(s=>s.de);
+  if(g.length&&m.length) notes.push(["w",t("soilW",{g:listJoin(g),m:listJoin(m)})]);
+  if(A.gaps.length){
+    const mo=listJoin(A.gaps.map(k=>T[S.lang].months[k-1]));
+    const zonesIn=new Set(A.sp.map(s=>s.z));
+    const cand=DATA.species.filter(s=>!S.mix.includes(s.id)&&s.p>=4&&!s.f.includes("spread")&&A.gaps.some(k=>inMonth(s.m,k))&&zonesIn.has(s.z))
+      .sort((a,b)=>A.gaps.filter(k=>inMonth(b.m,k)).length-A.gaps.filter(k=>inMonth(a.m,k)).length||b.p-a.p).slice(0,4);
+    notes.push(["w",cand.length?t("gapW",{mo,l:cand.map(s=>s.de).join(", ")}):t("gapW0",{mo}),cand.map(s=>s.id)]);
+  } else notes.push(["ok",t("okNectar")]);
+  const prot=A.sp.filter(s=>s.f.includes("protected")).map(s=>s.de);
+  if(prot.length) notes.push(["w",t("protW",{l:listJoin(prot)})]);
+  const missing=["A","B","C","D"].filter(z=>!A.zones[z]).map(z=>t("zones."+z));
+  if(missing.length) notes.push(["i",t("zoneI",{z:listJoin(missing)})]);
+  const supIds=Object.keys(A.sup).sort((a,b)=>A.sup[b].size-A.sup[a].size);
+  const isSpec=fid=>/oligolect|Specialist|Spezialist/i.test(FA[fid].st.en)&&FA[fid].pl.filter(p=>p[1]==="pollen"||p[1]==="host").some(p=>S.mix.includes(p[0]));
+  const exportTxt=A.sp.slice().sort((a,b)=>a.z.localeCompare(b.z)||a.de.localeCompare(b.de)).map(s=>`${s.z} · ${s.de} – ${s.la}`).join("\n");
+  el.innerHTML=head+
+   (S.mixExample?`<div class="banner"><p>${esc(t("exampleBanner"))}</p></div>`:"")+
+   `<div class="tiles">
+     <div class="tile"><div class="v">${A.sp.length}</div><div class="k">${esc(t("tSpecies"))}</div></div>
+     <div class="tile"><div class="zones">${["A","B","C","D"].map(z=>`<span class="zb ${z}${A.zones[z]?"":" off"}" title="${esc(t("zones."+z))}: ${A.zones[z]}">${z}</span>`).join("")}</div><div class="k">${esc(t("tZones"))}</div></div>
+     <div class="tile"><div class="v">${A.goodMonths}<small> / 8</small></div><div class="k">${esc(t("tMonths"))}</div></div>
+     <div class="tile"><div class="v">${supIds.length}</div><div class="k">${esc(t("tFauna"))}</div></div>
+   </div>
+   <div class="mix-grid"><div>
+     <div class="box"><h3>${esc(t("nectarT"))}</h3><p class="sub">${esc(t("nectarS"))}</p>${nectarChart(A.nectar,A.gaps)}</div>
+     <div class="box"><h3>${esc(t("calT"))}</h3><p class="sub">${esc(t("calS"))}</p>${calendar(A.sp)}</div>
+   </div><div>
+     <div class="box"><h3>${esc(t("notesT"))}</h3><ul class="notes" style="margin-top:10px">${notes.map(([k,txt,cand])=>`<li><span class="ic ${k}">${k==="w"?"!":(k==="ok"?"✓":"i")}</span><div>${esc(txt)}${cand&&cand.length?`<div class="chips" style="margin-top:6px">${cand.map(id=>`<button type="button" class="chip" data-act="mix-toggle" data-id="${id}"><span class="dot" style="--c:${col(SP[id].c)}"></span>+ ${esc(SP[id].de)}</button>`).join("")}</div>`:""}</div></li>`).join("")}</ul></div>
+     <div class="box"><h3>${esc(t("supT"))}</h3><p class="sub">${esc(t("supS"))}</p><div class="chips">${supIds.map(fid=>faChip(fid,isSpec(fid)?t("specialist"):"")).join("")||"–"}</div></div>
+     <div class="box"><h3>${esc(t("exportT"))}</h3><textarea class="export" id="export" readonly>${esc(exportTxt)}</textarea><div class="row-actions" style="margin-top:8px"><button type="button" class="btn" data-act="copy">${esc(t("copy"))}</button></div></div>
+   </div></div>`;
+}
+function showTip(target){
+  const chart=target.closest(".chart");if(!chart)return;
+  let tip=chart.querySelector(".tip");if(!tip){tip=document.createElement("div");tip.className="tip";chart.appendChild(tip);}
+  const i=+target.dataset.i, A=mixAnalysis(), list=A.nectar[i];
+  const names=list.slice(0,8).map(s=>esc(s.de)).join(", ")+(list.length>8?` +${list.length-8}`:"");
+  tip.innerHTML=`<b>${esc(T[S.lang].months[i])}</b> · ${list.length}<br>${names||"–"}`;
+  const cb=chart.getBoundingClientRect(), tb=target.getBoundingClientRect();
+  let left=tb.left-cb.left+tb.width/2-110; left=Math.max(0,Math.min(left,cb.width-230));
+  tip.style.left=left+"px"; tip.style.top="0px"; tip.hidden=false;
+}
+function hideTip(){document.querySelectorAll(".chart .tip").forEach(t=>t.hidden=true);}
+
+/* ---------- guide ---------- */
+function guideTable(kind){
+  if(kind==="types"){
+    return `<div class="tbl-wrap"><table class="types"><thead><tr><th>${esc(t("th.type"))}</th><th>${esc(t("th.fn"))}</th><th>${esc(t("th.water"))}</th><th>${esc(t("th.soil"))}</th><th>${esc(t("th.bio"))}</th></tr></thead><tbody>${DATA.types.map(r=>`<tr><td><b>${esc(L(r))}</b><br><span class="small muted">${esc(S.lang==="de"?r.en:r.de)}</span></td><td>${esc(S.lang==="de"?r.fn_de:r.fn_en)}</td><td>${esc(S.lang==="de"?r.d_de:r.d_en)}</td><td>${esc(S.lang==="de"?r.s_de:r.s_en)}</td><td><div class="chips">${r.b.map(b=>bioChip(b)).join("")}</div></td></tr>`).join("")}</tbody></table></div>`;}
+  if(kind==="structures"){
+    return `<div class="tbl-wrap"><table class="structs"><thead><tr><th>${esc(t("th.struct"))}</th><th>${esc(t("th.where"))}</th><th>${esc(t("th.who"))}</th></tr></thead><tbody>${Object.keys(DATA.struct).filter(k=>stFauna[k]).map(k=>`<tr><td><b>${esc(L(DATA.struct[k]))}</b></td><td>${esc(S.lang==="de"?DATA.struct[k].wde:DATA.struct[k].wen)}</td><td><div class="chips">${stFauna[k].map(fid=>faChip(fid)).join("")}</div></td></tr>`).join("")}</tbody></table></div>`;}
+  if(kind==="care"){
+    return `<div class="tbl-wrap"><table class="care"><thead><tr><th>${esc(t("th.task"))}</th>${T[S.lang].months.map((m,i)=>`<th class="m" title="${esc(m)}">${ROMAN[i]}</th>`).join("")}</tr></thead><tbody>${DATA.care.map(r=>`<tr><td>${esc(L(r))}</td>${Array.from({length:12},(_,i)=>`<td class="m${r.m.includes(i+1)?" on":""}"><i></i></td>`).join("")}</tr>`).join("")}</tbody></table></div>`;}
+  return "";
+}
+function renderGuide(){
+  const G=DATA.guide;
+  $("#p-guide").innerHTML=`
+  <div class="panel-head"><div><h2>${esc(t("guideTitle"))}</h2><p>${esc(t("guideIntro"))}</p></div></div>
+  <div class="guide">
+   <nav class="toc" aria-label="Contents">${G.map((s,i)=>`<button type="button" data-act="toc" data-v="${s.id}"><span class="num">${i+1}</span>${esc(S.lang==="de"?s.de_t:s.en_t)}</button>`).join("")}</nav>
+   <div class="g-body">${G.map((s,i)=>`<section class="g-sec" id="g-${s.id}"><h2><span class="num">${String(i+1).padStart(2,"0")}</span>${esc(S.lang==="de"?s.de_t:s.en_t)}</h2>${S.lang==="de"?s.de:s.en}${s.table?guideTable(s.table):""}${s.action==="crosssection"?`<div style="margin-top:12px"><button type="button" class="btn primary" data-act="goto-cross">${esc(t("showCross"))}</button></div>`:""}${(S.lang==="de"?s.de_after:s.en_after)||""}</section>`).join("")}</div>
+  </div>`;
+}
+
+/* ---------- sheet ---------- */
+function sheetSpecies(s){
+  const inm=S.mix.includes(s.id);
+  const bios=spBio[s.id];
+  const fa=spFauna[s.id];
+  const byF={};fa.forEach(({f,role})=>{(byF[f]=byF[f]||[]).push(L(DATA.roles[role]));});
+  return `<div class="card-top"><span class="zb ${s.z}">${s.z}</span><span class="small">${esc(t("zones."+s.z))} · ${esc(t("zonesSub."+s.z))}</span>${s.f.map(fl=>`<span class="pill warn">${esc(t("flags."+fl))}</span>`).join("")}</div>
+  <div><h2 id="sheet-title">${esc(s.de)}</h2><p class="latin">${esc(s.la)}</p><p class="muted">${esc(s.en)}</p></div>
+  <div style="display:flex;flex-direction:column;gap:8px">
+   <div class="mrow"><span>${esc(t("meters.fl"))}</span>${meter("fl",s.fl)}<b>${s.fl}/5</b></div>
+   <div class="mrow"><span>${esc(t("meters.dr"))}</span>${meter("dr",s.dr)}<b>${s.dr}/5</b></div>
+   <div class="mrow"><span>${esc(t("meters.po"))}</span>${meter("po",s.p)}<b>${s.p}/5</b></div>
+  </div>
+  <p>${esc(L(s.n))}</p>
+  <div class="kv">
+   <div><div class="k">${esc(t("typeL"))}</div><div class="v">${esc(t("types."+s.t))}</div></div>
+   <div><div class="k">${esc(t("height"))}</div><div class="v">${esc(s.h)}</div></div>
+   <div><div class="k">${esc(t("flowering"))}</div><div class="v">${esc(range(s.m))}</div></div>
+   <div><div class="k">${esc(t("colour"))}</div><div class="v"><span class="dot" style="--c:${col(s.c)}"></span>${esc(colName(s.c))}</div></div>
+   <div><div class="k">${esc(t("habit"))}</div><div class="v">${esc(t("habits."+s.hb))}</div></div>
+   <div><div class="k">${esc(t("soil"))}</div><div class="v">${esc(t("soils."+s.so))}</div></div>
+   <div><div class="k">${esc(t("saltL"))}</div><div class="v">${esc(t("salts."+s.sa))}</div></div>
+  </div>
+  <div>${strip(s.m,col(s.c),true)}</div>
+  <div class="block"><h3>${esc(t("inBio"))}</h3><div class="chips">${bios.map(x=>bioChip(x.b,x.core?t("asCore"):t("asComp"))).join("")}</div></div>
+  ${Object.keys(byF).length?`<div class="block"><h3>${esc(t("usedBy"))}</h3><div class="chips">${Object.keys(byF).map(fid=>faChip(fid,[...new Set(byF[fid])].join(", "))).join("")}</div></div>`:""}
+  <div><button type="button" class="btn ${inm?"":"primary"}" data-act="mix-toggle" data-id="${s.id}" aria-pressed="${inm}">${esc(inm?t("removeMix"):t("addMixLong"))}</button></div>`;
+}
+function sheetFauna(f){
+  const roles={};f.pl.forEach(([pid,role])=>{(roles[role]=roles[role]||[]).push(pid);});
+  return `<div class="card-top"><span class="grp" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent)">${esc(L(DATA.groups[f.g]))}</span><span class="pill">${esc(L(f.st))}</span></div>
+  <div><h2 id="sheet-title">${esc(faName(f))}</h2><p class="latin">${esc(f.la)}</p><p class="muted">${esc(faAlt(f))}</p></div>
+  <p>${esc(L(f.tx))}</p>
+  <div class="block"><h3>${esc(t("active"))} · ${esc(range(f.m))}</h3>${strip(f.m,"var(--accent)",true)}</div>
+  ${f.pl.length?`<div class="block"><h3>${esc(t("needsPlants"))}</h3>${Object.keys(roles).map(r=>`<div class="rolegrp"><span class="small">${esc(L(DATA.roles[r]))}</span><div class="chips">${roles[r].map(id=>spChip(id)).join("")}</div></div>`).join("")}</div>`:""}
+  <div class="block"><h3>${esc(t("needsStruct"))}</h3><ul class="struct-list">${f.sr.map(k=>`<li>${esc(L(DATA.struct[k]))}<span class="w">${esc(S.lang==="de"?DATA.struct[k].wde:DATA.struct[k].wen)}</span></li>`).join("")}</ul></div>
+  <div class="block"><h3>${esc(t("foundIn"))}</h3><div class="chips">${(faBio[f.id]||[]).map(b=>bioChip(b)).join("")}</div></div>`;
+}
+function renderSheet(){
+  const top=S.stack[S.stack.length-1], wrap=$("#sheet");
+  if(!top){wrap.hidden=true;document.body.style.overflow="";return;}
+  wrap.hidden=false;document.body.style.overflow="hidden";
+  $("#sheet-back-slot").innerHTML=S.stack.length>1?`<button type="button" class="iconbtn" data-act="sheet-back">← ${esc(t("back"))}</button>`:"";
+  $("#sheet-close").textContent=t("close");
+  const body=$("#sheet-body");
+  body.innerHTML=top.type==="sp"?sheetSpecies(SP[top.id]):sheetFauna(FA[top.id]);
+  body.scrollTop=0;
+}
+function openSheet(type,id){
+  if(!S.stack.length) S.lastFocus=document.activeElement;
+  const top=S.stack[S.stack.length-1];
+  if(top&&top.type===type&&top.id===id) return;
+  S.stack.push({type,id});renderSheet();
+  setTimeout(()=>{const c=$("#sheet-close");if(c)c.focus({preventScroll:true});},30);
+}
+function closeSheet(){S.stack=[];renderSheet();if(S.lastFocus&&document.contains(S.lastFocus))S.lastFocus.focus({preventScroll:true});}
+
+/* ---------- mix ops ---------- */
+function afterMixChange(){
+  saveMix();updateBadge();
+  if(S.tab==="mix")renderMix();
+  if(S.tab==="plants")document.querySelectorAll("#pl-grid .mixbtn").forEach(b=>{const on=S.mix.includes(b.dataset.id);b.setAttribute("aria-pressed",on);b.textContent=on?t("inMix"):t("addMix");});
+  if(S.stack.length)renderSheet();
+}
+function toggleMix(id){
+  const s=SP[id];
+  if(S.mix.includes(id)){S.mix=S.mix.filter(x=>x!==id);toast((S.lang==="de"?"Entfernt: ":"Removed: ")+s.de);}
+  else{S.mix.push(id);toast((S.lang==="de"?"Hinzugefügt: ":"Added: ")+s.de);}
+  S.mixExample=false;S.confirmClear=false;afterMixChange();
+}
+
+/* ---------- routing ---------- */
+const renderers={biotopes:renderBiotopes,plants:renderPlants,fauna:renderFauna,mix:renderMix,guide:renderGuide};
+function setTab(k,noHash){
+  S.tab=k;S.confirmClear=false;
+  document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.v===k));
+  TABS.forEach(x=>{$("#p-"+x).hidden=x!==k;});
+  renderers[k]();revealTab();
+  if(!noHash){try{history.replaceState(null,"","#"+k);}catch(e){try{location.hash=k;}catch(e2){}}}
+}
+function renderAll(){renderChrome();renderers[S.tab]();if(S.stack.length)renderSheet();}
+
+/* ---------- events ---------- */
+document.addEventListener("click",e=>{
+  const el=e.target.closest("[data-act]");if(!el)return;
+  const a=el.dataset.act,v=el.dataset.v,id=el.dataset.id;
+  switch(a){
+    case "lang": S.lang=v;store.set("wf_lang",v);renderAll();break;
+    case "tab": if(S.stack.length)closeSheet();setTab(v);window.scrollTo({top:0});break;
+    case "profile": S.profile=v;renderBiotopes();break;
+    case "water": S.water=v;updateWater();break;
+    case "bio": if(S.stack.length)closeSheet();selectBio(id,el.closest("#p-biotopes")===null||el.classList.contains("chip"));break;
+    case "sp": openSheet("sp",id);break;
+    case "fa": openSheet("fa",id);break;
+    case "sheet-close": closeSheet();break;
+    case "sheet-back": S.stack.pop();renderSheet();break;
+    case "mix-toggle": e.stopPropagation();toggleMix(id);break;
+    case "mix-add-bio":{const b=BI[id];const add=b.core.concat(b.comp).filter(x=>!S.mix.includes(x));S.mix=S.mix.concat(add);S.mixExample=false;afterMixChange();toast(add.length?t("added",{n:add.length}):t("already"));break;}
+    case "mix-clear": S.confirmClear=true;renderMix();break;
+    case "mix-clear-no": S.confirmClear=false;renderMix();break;
+    case "mix-clear-yes": S.mix=[];S.mixExample=false;S.confirmClear=false;afterMixChange();break;
+    case "mix-example": S.mix=EXAMPLE.slice();S.mixExample=true;afterMixChange();break;
+    case "copy":{const ta=$("#export");const txt=ta.value;const fail=()=>{ta.focus();ta.select();toast(t("copyFail"));};
+      try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(()=>toast(t("copied")),fail);}else fail();}catch(err){fail();}break;}
+    case "f-open": S.filtersOpen=!S.filtersOpen;$("#filters").classList.toggle("open",S.filtersOpen);el.setAttribute("aria-expanded",S.filtersOpen);break;
+    case "f-zone": if(S.f.zones.has(v))S.f.zones.delete(v);else S.f.zones.add(v);el.setAttribute("aria-pressed",S.f.zones.has(v));renderPlantResults();break;
+    case "f-reset": S.f={q:"",zones:new Set(),soil:"",flood:0,month:0,poll:false,salt:false,type:"",sort:S.f.sort};renderPlants();break;
+    case "fa-group": S.fg=v;document.querySelectorAll("[data-act='fa-group']").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===S.fg));renderFaunaResults();break;
+    case "toc":{const sec=$("#g-"+v);if(sec)sec.scrollIntoView({behavior:"smooth",block:"start"});break;}
+    case "goto-cross": setTab("biotopes");setTimeout(()=>{const f=$("#cross");if(f)f.scrollIntoView({behavior:"smooth",block:"center"});},50);break;
+  }
+});
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"&&S.stack.length){closeSheet();return;}
+  if((e.key==="Enter"||e.key===" ")&&e.target.matches&&e.target.matches("svg .band")){e.preventDefault();e.target.dispatchEvent(new MouseEvent("click",{bubbles:true}));}
+});
+document.addEventListener("input",e=>{
+  const id=e.target.id;
+  if(id==="f-q"){S.f.q=e.target.value;renderPlantResults();}
+  else if(id==="fa-q"){S.fq=e.target.value;renderFaunaResults();}
+});
+document.addEventListener("change",e=>{
+  const id=e.target.id,v=e.target.value;
+  if(id==="f-soil")S.f.soil=v;
+  else if(id==="f-flood")S.f.flood=+v;
+  else if(id==="f-month")S.f.month=+v;
+  else if(id==="f-type")S.f.type=v;
+  else if(id==="f-sort")S.f.sort=v;
+  else if(id==="f-poll")S.f.poll=e.target.checked;
+  else if(id==="f-salt")S.f.salt=e.target.checked;
+  else return;
+  renderPlantResults();
+});
+document.addEventListener("mouseover",e=>{const h=e.target.closest&&e.target.closest("[data-tip]");if(h)showTip(h);});
+document.addEventListener("mouseout",e=>{const h=e.target.closest&&e.target.closest("[data-tip]");if(h&&!(e.relatedTarget&&h.contains(e.relatedTarget)))hideTip();});
+document.addEventListener("click",e=>{const h=e.target.closest&&e.target.closest("[data-tip]");if(h)showTip(h);else hideTip();},true);
+document.addEventListener("keydown",e=>{
+  const tabs=[...document.querySelectorAll(".tab")];const i=tabs.indexOf(document.activeElement);
+  if(i<0)return;
+  if(e.key==="ArrowRight"||e.key==="ArrowLeft"){e.preventDefault();const n=tabs[(i+(e.key==="ArrowRight"?1:-1)+tabs.length)%tabs.length];n.focus();n.click();}
+});
+
+/* ---------- boot ---------- */
+const h=(location.hash||"").replace("#","");
+if(TABS.includes(h))S.tab=h;
+renderChrome();renderers[S.tab]();
+})();
+</script>
